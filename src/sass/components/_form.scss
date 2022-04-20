@@ -1,0 +1,33 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  font-size: $big-font-size;
+
+  &__input-group {
+    @include centered-flex;
+    justify-content: space-between;
+
+    color: $color-white;
+    background-color: $color-primary;
+
+    border: 1px solid $color-primary;
+    border-radius: 3px;
+
+    & label {
+      padding-left: 1rem;
+    }
+
+    & input {
+      font-size: $big-font-size;
+
+      background-color: $color-white;
+      clip-path: polygon(10% 0, 0 100%, 100% 100%, 100% 0);
+
+      border: none;
+      padding: 1.5rem;
+      padding-left: 3rem;
+    }
+  }
+}
