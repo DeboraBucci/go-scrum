@@ -1,11 +1,11 @@
 import React from "react";
 
-import Logo from "./assets/go-scrum-logo.webp";
+import Login from "./components/login/Login.js";
 
 function App() {
   return (
     <React.Fragment>
-      <img src={Logo} alt="logo" />
+      <Login />
     </React.Fragment>
   );
 }
