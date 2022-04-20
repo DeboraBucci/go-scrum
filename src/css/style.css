@@ -1,56 +1,172 @@
-body {
+@keyframes rotate-right {
+  from {
+    transform: rotate(360deg); } }
+
+@keyframes rotate-left {
+  from {
+    transform: rotate(-360deg); } }
+
+*,
+*::before,
+*::after {
   margin: 0;
+  padding: 0;
+  box-sizing: inherit; }
+
+html {
+  font-size: 62.5%;
+  /* 10px */ }
+
+body {
+  box-sizing: border-box; }
+
+body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale; }
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace; }
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 1.6rem; }
 
 .heading--primary {
   font-family: "Allerta Stencil", sans-serif;
-  font-size: 5rem;
-  color: white; }
+  font-size: 10rem;
+  font-weight: 100;
+  color: #fff; }
 
-.login {
-  display: flex;
-  justify-content: space-between;
-  height: 100vh;
-  background-color: #1e0b42; }
-  .login__brand {
-    z-index: 10;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 10rem;
-    flex-basis: 40%; }
-  .login__img {
-    width: 20rem; }
+.heading--secondary {
+  font-size: 4rem;
+  font-weight: 200;
+  color: #82689c; }
 
-.wrapper {
-  height: 100%;
-  width: 40%;
+.margin-b-tn {
+  margin-bottom: 1rem; }
+
+.margin-b-sm {
+  margin-bottom: 2rem; }
+
+.margin-b-md {
+  margin-bottom: 4rem; }
+
+.margin-b-bg {
+  margin-bottom: 6rem; }
+
+.margin-b-hg {
+  margin-bottom: 8rem; }
+
+.margin-b-tn {
+  margin-bottom: 1rem; }
+
+.margin-b-sm {
+  margin-bottom: 2rem; }
+
+.margin-b-md {
+  margin-bottom: 4rem; }
+
+.margin-b-bg {
+  margin-bottom: 6rem; }
+
+.margin-b-hg {
+  margin-bottom: 8rem; }
+
+.hero__brand {
+  z-index: 100;
   position: absolute;
   right: 0;
   top: 0;
+  height: 100%;
+  width: 45%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20rem; }
+
+.hero__img {
+  z-index: 100;
+  width: 30rem; }
+
+.wrapper {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 45%;
   background-image: linear-gradient(to top, #1e0b42 0%, #764dc2 100%);
   overflow: hidden; }
 
 .wave {
-  width: 1000px;
-  height: 1025px;
   position: absolute;
-  top: 5%;
   left: 50%;
   margin-left: -500px;
-  margin-top: -500px;
-  border-radius: 35%;
-  background: white;
-  animation: wave 15s infinite linear; }
+  margin-top: -500px; }
+  .wave--1 {
+    z-index: 1;
+    top: 5%;
+    width: 1000px;
+    height: 1025px;
+    border-radius: 35%;
+    background: rgba(255, 255, 255, 0.9);
+    animation: rotate-right 15s infinite linear; }
+  .wave--2 {
+    z-index: 10;
+    top: 6%;
+    width: 1050px;
+    height: 1040px;
+    border-radius: 40%;
+    background: rgba(255, 255, 255, 0.1);
+    animation: rotate-left 10s infinite linear; }
 
-@keyframes wave {
-  from {
-    transform: rotate(0deg); }
-  from {
-    transform: rotate(360deg); } }
+.login {
+  display: grid;
+  grid-template-columns: 55% 45%;
+  grid-template-rows: 100vh; }
+  .login__content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; }
+  .login__cta {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-between; }
+  .login__button {
+    flex-basis: 50%;
+    cursor: pointer;
+    border: none;
+    font-size: 1.6rem;
+    transition: all 0.2s; }
+    .login__button:hover {
+      transform: translateY(-3px); }
+    .login__button--login {
+      background-color: #4c2771;
+      color: #fff;
+      padding: 1rem 1.5rem;
+      border-radius: 3px; }
+    .login__button--register {
+      background-color: transparent;
+      text-decoration: underline; }
+      .login__button--register:hover {
+        text-decoration: none; }
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  font-size: 2rem; }
+  .form__input-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-between;
+    color: #fff;
+    background-color: #4c2771;
+    border: 1px solid #4c2771;
+    border-radius: 3px; }
+    .form__input-group label {
+      padding-left: 1rem; }
+    .form__input-group input {
+      font-size: 2rem;
+      background-color: #fff;
+      clip-path: polygon(10% 0, 0 100%, 100% 100%, 100% 0);
+      border: none;
+      padding: 1.5rem;
+      padding-left: 3rem; }
