@@ -1,0 +1,67 @@
+.hero {
+  &__brand {
+    z-index: 100;
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    height: 100%;
+    width: 45%;
+
+    @include centered-flex;
+    flex-direction: column;
+    gap: 20rem;
+  }
+
+  &__img {
+    z-index: 100;
+    width: 30rem;
+  }
+}
+
+.wrapper {
+  position: absolute;
+  right: 0;
+  top: 0;
+
+  height: 100%;
+  width: 45%;
+
+  background-image: linear-gradient(
+    to top,
+    rgb(30, 11, 66) 0%,
+    rgb(118, 77, 194) 100%
+  );
+  overflow: hidden;
+}
+
+.wave {
+  position: absolute;
+  left: 50%;
+  margin-left: -500px;
+  margin-top: -500px;
+
+  &--1 {
+    z-index: 1;
+    top: 5%;
+
+    width: 1000px;
+    height: 1025px;
+
+    border-radius: 35%;
+    background: rgba(255, 255, 255, 0.9);
+    animation: rotate-right 15s infinite linear;
+  }
+
+  &--2 {
+    z-index: 10;
+    top: 6%;
+
+    width: 1050px;
+    height: 1040px;
+
+    border-radius: 40%;
+    background: rgba(255, 255, 255, 0.1);
+    animation: rotate-left 10s infinite linear;
+  }
+}
