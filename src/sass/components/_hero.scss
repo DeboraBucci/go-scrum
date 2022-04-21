@@ -10,12 +10,21 @@
 
     @include centered-flex;
     flex-direction: column;
-    gap: 20rem;
+    gap: 25rem;
   }
 
   &__img {
     z-index: 100;
     width: 30rem;
+  }
+
+  &__text {
+    text-align: center;
+    color: $color-white;
+
+    & p {
+      text-transform: uppercase;
+    }
   }
 }
 
