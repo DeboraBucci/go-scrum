@@ -1,3 +1,14 @@
+.form-container {
+  display: grid;
+  grid-template-columns: 55% 45%;
+  grid-template-rows: 100vh;
+
+  &__content {
+    @include centered-flex;
+    flex-direction: column;
+  }
+}
+
 .form {
   display: flex;
   flex-direction: column;
@@ -16,10 +27,12 @@
     border-radius: 3px;
 
     & label {
-      padding-left: 1rem;
+      @include centered-flex;
+      min-width: 6rem;
     }
 
-    & input {
+    & input,
+    & select {
       font-size: $big-font-size;
 
       background-color: $color-white;
@@ -27,7 +40,63 @@
 
       border: none;
       padding: 1.5rem;
-      padding-left: 3rem;
+      width: 30rem;
+      text-align: center;
+    }
+
+    & select {
+      cursor: pointer;
+      color: #696969;
+      -moz-appearance: none; /* Firefox */
+      -webkit-appearance: none; /* Safari and Chrome */
+      appearance: none;
+    }
+  }
+
+  &__cta {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__button {
+    flex-basis: 50%;
+    cursor: pointer;
+    border: none;
+    font-size: $medium-font-size;
+    transition: all 0.2s;
+
+    &:hover {
+      transform: translateY(-3px);
+    }
+
+    &--purple {
+      background-color: $color-primary;
+      color: $color-white;
+
+      padding: 1rem 1.5rem;
+      border-radius: 3px;
+    }
+
+    &--underline {
+      background-color: transparent;
+      text-decoration: underline;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+
+  &__dropdown {
+    position: relative;
+
+    &--i {
+      position: absolute;
+      right: 1rem;
+      pointer-events: none;
+      background: none !important;
+      color: $color-primary;
     }
   }
 }
