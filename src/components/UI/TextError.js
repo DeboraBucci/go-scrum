@@ -2,7 +2,12 @@ import React from "react";
 
 const TextError = (props) => {
   return (
-    <p style={{ fontSize: "1.6rem", color: "crimson" }}>{props.children}</p>
+    <p
+      className="margin-t-tn "
+      style={{ fontSize: "1.6rem", color: "crimson", maxWidth: "40rem" }}
+    >
+      {props.children}
+    </p>
   );
 };
 
