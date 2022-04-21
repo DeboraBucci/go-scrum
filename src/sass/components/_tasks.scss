@@ -1,0 +1,60 @@
+.tasks {
+  display: flex;
+  justify-content: space-between;
+  padding: 5rem;
+  height: calc(100vh - 7rem);
+
+  &__create {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    background-color: $color-primary;
+    height: 100%;
+    border-radius: 3px;
+    padding: 2rem;
+
+    & button {
+      font-size: $big-font-size;
+    }
+  }
+
+  &__form {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__cards {
+    position: relative;
+    flex-basis: 80%;
+    padding: 2rem 4rem;
+
+    & h2 {
+      text-align: end;
+    }
+
+    &--empty {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      @include centered-flex;
+      flex-direction: column;
+      gap: 2rem;
+
+      color: tint($color-primary, 50%);
+
+      & i {
+        font-size: 10rem;
+      }
+
+      & p {
+        font-size: $big-font-size;
+        font-weight: 500;
+      }
+    }
+  }
+}
