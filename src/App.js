@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router-dom";
 
 import Login from "./components/auth/Login.js";
 import Register from "./components/auth/Register.js";
+import Error404 from "./components/errors/Error404.js";
 import Home from "./components/home/Home.js";
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
         <Route exact path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="*" element={<Error404 />} />
       </Routes>
     </React.Fragment>
   );

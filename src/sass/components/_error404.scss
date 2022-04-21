@@ -1,0 +1,39 @@
+.error404 {
+  @include centered-flex;
+  flex-direction: column;
+  height: 100vh;
+
+  &__logo {
+    width: 30rem;
+    margin-left: 70px;
+    opacity: 0.4;
+  }
+
+  &__heading {
+    font-size: 8rem;
+    color: tint($color-primary, 40%);
+  }
+
+  &__text {
+    font-size: $big-font-size;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: $color-primary;
+  }
+
+  &__link {
+    background-color: $color-primary;
+    color: $color-white;
+
+    border: 2px solid $color-primary;
+    border-radius: 3px;
+
+    padding: 1rem;
+    transition: all 0.2s;
+
+    &:hover {
+      background-color: transparent;
+      color: $color-primary;
+    }
+  }
+}
