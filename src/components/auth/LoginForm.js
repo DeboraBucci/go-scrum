@@ -12,17 +12,8 @@ const LoginForm = ({ registerHandler }) => {
   };
 
   const validationSchema = Yup.object({
-    email: Yup.string()
-      .email("Invalid email format")
-      .required("Required")
-      .matches(/^([^0-9]*)$/, "El email no debe contener ningún número."),
-    password: Yup.string()
-      .min(6)
-      .required("Required")
-      .matches(
-        /(?=.*\d)(?=.*[A-Z])/,
-        "La contraseña debe contar con al menos una letra en mayúsculas y un número."
-      ),
+    email: Yup.string().email("Invalid email format").required("Required"),
+    password: Yup.string().min(6).required("Required"),
   });
 
   const onSubmit = (values) => {
