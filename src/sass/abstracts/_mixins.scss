@@ -1,5 +1,12 @@
+// FLEXBOX
 @mixin centered-flex {
   display: flex;
   justify-content: center;
+  align-items: center;
+}
+
+@mixin row-spaced-flex {
+  display: flex;
+  justify-content: space-between;
   align-items: center;
 }
