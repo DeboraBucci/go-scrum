@@ -1,0 +1,76 @@
+.header {
+  @include row-spaced-flex;
+  width: 100%;
+  height: 7rem;
+  padding: 0 3rem;
+  border-bottom: 3px solid $color-primary;
+
+  & > * {
+    color: $color-primary !important;
+  }
+
+  &__nav {
+    @include row-spaced-flex;
+    width: 100%;
+  }
+
+  &__logo {
+    max-height: 7rem;
+  }
+
+  &__list {
+    display: flex;
+    justify-content: space-evenly;
+    flex-basis: 20%;
+  }
+
+  &__list-item {
+    @include centered-flex;
+
+    & p {
+      font-weight: 500;
+      font-size: $big-font-size;
+      margin-right: 2rem;
+    }
+  }
+
+  &__link {
+    @include centered-flex;
+    cursor: pointer;
+    position: relative;
+    min-width: 9rem;
+    transition: all 0.5s;
+
+    &:hover {
+      background: linear-gradient(
+        to bottom,
+        tint($color-primary, 96%),
+        transparent
+      );
+    }
+
+    &:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0px;
+      height: 4px;
+      background-color: $color-primary;
+      border-bottom-right-radius: 3px;
+      border-bottom-left-radius: 3px;
+      transition: all 0.4s;
+    }
+
+    &:hover:before {
+      width: 9rem;
+    }
+  }
+
+  &__nav,
+  &__list,
+  &__list-item,
+  &__link {
+    height: 100%;
+  }
+}
