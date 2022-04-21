@@ -12,7 +12,10 @@ const LoginForm = ({ registerHandler }) => {
   };
 
   const validationSchema = Yup.object({
-    email: Yup.string().email("Invalid email format").required("Required"),
+    email: Yup.string()
+      .email("Invalid email format")
+      .required("Required")
+      .matches(/^([^0-9]*)$/, "El email no debe contener ningún número."),
     password: Yup.string()
       .min(6)
       .required("Required")
