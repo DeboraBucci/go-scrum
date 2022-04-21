@@ -21,7 +21,7 @@
   &__list {
     display: flex;
     justify-content: space-evenly;
-    flex-basis: 20%;
+    flex-basis: 25%;
   }
 
   &__list-item {
@@ -30,7 +30,6 @@
     & p {
       font-weight: 500;
       font-size: $big-font-size;
-      margin-right: 2rem;
     }
   }
 
