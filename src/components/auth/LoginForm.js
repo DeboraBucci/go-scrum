@@ -5,7 +5,7 @@ import * as Yup from "yup";
 
 import TextError from "../UI/TextError";
 
-const LoginForm = ({ registerHandler }) => {
+const LoginForm = ({ registerHandler, loginHandler }) => {
   const initialValues = {
     email: "",
     password: "",
@@ -19,7 +19,7 @@ const LoginForm = ({ registerHandler }) => {
   });
 
   const onSubmit = (values) => {
-    console.log(values);
+    loginHandler(values);
   };
 
   const emailInput = (

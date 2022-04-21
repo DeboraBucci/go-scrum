@@ -6,15 +6,22 @@ import RegisterForm from "./RegisterForm";
 const Register = () => {
   const navigate = useNavigate();
 
-  const loginHandler = () => {
+  const goToLoginHandler = () => {
     navigate("/login", { replace: true });
+  };
+
+  const registerHandler = (values) => {
+    console.log(values);
   };
 
   return (
     <section className="form-container">
       <div className="form-container__content">
         <h2 className="heading--secondary margin-b-md">Registrarse</h2>
-        <RegisterForm loginHandler={loginHandler} />
+        <RegisterForm
+          loginHandler={goToLoginHandler}
+          registerHandler={registerHandler}
+        />
       </div>
 
       <Hero />
