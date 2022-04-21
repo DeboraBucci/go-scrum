@@ -1,0 +1,38 @@
+.button {
+  cursor: pointer;
+  border: none;
+  font-size: $medium-font-size;
+  transition: all 0.2s;
+  border-radius: 3px;
+  padding: 1rem 1.5rem;
+
+  &:hover {
+    transform: translateY(-3px);
+  }
+
+  &--purple {
+    background-color: $color-primary;
+    color: $color-white;
+  }
+
+  &--white {
+    background-color: $color-white;
+    color: $color-primary;
+  }
+
+  &--cancel {
+    background-color: crimson;
+    color: $color-white;
+  }
+
+  &--underline {
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    text-decoration: underline;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
