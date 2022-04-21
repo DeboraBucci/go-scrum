@@ -17,7 +17,7 @@ const Register = () => {
   return (
     <section className="form-container">
       <div className="form-container__content">
-        <h2 className="heading--secondary margin-b-md">Registrarse</h2>
+        <h2 className="heading-secondary margin-b-md">Registrarse</h2>
         <RegisterForm
           loginHandler={goToLoginHandler}
           registerHandler={registerHandler}

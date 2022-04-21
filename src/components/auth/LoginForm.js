@@ -60,12 +60,12 @@ const LoginForm = ({ registerHandler, loginHandler }) => {
 
   const cta = (
     <div className="form__cta">
-      <button type="submit" className="form__button form__button--purple">
+      <button type="submit" className="button button--purple">
         Iniciar Sesión
       </button>
       <button
         type="button"
-        className="form__button form__button--underline"
+        className="button button--underline"
         onClick={registerHandler}
       >
         Registrarse
