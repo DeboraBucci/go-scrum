@@ -13,7 +13,9 @@ const LoginForm = ({ registerHandler }) => {
 
   const validationSchema = Yup.object({
     email: Yup.string().email("Invalid email format").required("Required"),
-    password: Yup.string().min(6).required("Required"),
+    password: Yup.string()
+      .min(6, "La contraseña debe tener al menos seis caracteres.")
+      .required("Required"),
   });
 
   const onSubmit = (values) => {
@@ -21,43 +23,49 @@ const LoginForm = ({ registerHandler }) => {
   };
 
   const emailInput = (
-    <div>
+    <>
       <div className="form__input-group">
-        <label htmlFor="email">Email</label>
+        <label htmlFor="email">
+          <span className="hidden">Email</span>
+          <i className="fa-regular fa-at"></i>
+        </label>
         <Field
           type="text"
           id="email"
           name="email"
-          placeholder="pepe@example.com"
+          placeholder="Correo Electrónico"
         />
       </div>
       <ErrorMessage name="email" component={TextError} />
-    </div>
+    </>
   );
 
   const passwordInput = (
-    <div>
+    <>
       <div className="form__input-group">
-        <label htmlFor="password">Contraseña</label>
+        <label htmlFor="password">
+          <span className="hidden">Contraseña</span>
+          <i className="fa-solid fa-key"></i>
+        </label>
         <Field
           type="password"
           id="password"
           name="password"
-          placeholder="Pepe123!"
+          placeholder="Contraseña"
         />
       </div>
       <ErrorMessage name="password" component={TextError} />
-    </div>
+    </>
   );
 
   const cta = (
-    <div className="login__cta">
-      <button type="submit" className="login__button login__button--login">
+    <div className="form__cta">
+      <button type="submit" className="form__button form__button--purple">
         Iniciar Sesión
       </button>
       <button
         type="button"
-        className="login__button login__button--register"
+        className="form__button form__button--underline"
         onClick={registerHandler}
       >
         Registrarse
@@ -72,8 +80,8 @@ const LoginForm = ({ registerHandler }) => {
       onSubmit={onSubmit}
     >
       <Form className="form">
-        {emailInput}
-        {passwordInput}
+        <div>{emailInput}</div>
+        <div>{passwordInput}</div>
         {cta}
       </Form>
     </Formik>
