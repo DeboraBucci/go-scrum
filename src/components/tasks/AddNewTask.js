@@ -36,7 +36,11 @@ const AddNewTask = ({ close }) => {
         name="name"
         placeholder="Nombre de la Tarea"
       />
-      <ErrorMessage name="name" component={TextError} />
+      <ErrorMessage
+        name="name"
+        component={TextError}
+        className={"new-task__input-group--err"}
+      />
     </div>
   );
 
@@ -57,7 +61,11 @@ const AddNewTask = ({ close }) => {
         <option value="codeReview">Code Review</option>
         <option value="done">Done</option>
       </Field>
-      <ErrorMessage name="status" component={TextError} />
+      <ErrorMessage
+        name="status"
+        component={TextError}
+        className={"new-task__input-group--err"}
+      />
     </div>
   );
 

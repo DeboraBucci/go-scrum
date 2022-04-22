@@ -41,6 +41,10 @@
       color: #808080;
     }
 
+    &--err {
+      grid-column: 2 / -1;
+    }
+
     &--time {
       display: flex;
       align-items: center;

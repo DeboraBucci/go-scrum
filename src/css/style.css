@@ -352,6 +352,8 @@ body {
     border-radius: 3px;
     font-size: 1.6rem;
     color: #808080; }
+  .new-task__input-group--err {
+    grid-column: 2 / -1; }
   .new-task__input-group--time {
     display: flex;
     align-items: center;
