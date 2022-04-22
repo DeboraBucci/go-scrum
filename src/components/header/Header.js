@@ -13,12 +13,12 @@ const Header = () => {
             <p>Welcome, User!</p>
           </li>
           <li className="header__list-item">
-            <Link className="header__link" to="/login">
+            <Link className="underline-animation" to="/login">
               Sign Out
             </Link>
           </li>
           <li className="header__list-item">
-            <Link className="header__link" to="/user">
+            <Link className="header__user" to="/user">
               <i className="fa-solid fa-user"></i>
             </Link>
           </li>
