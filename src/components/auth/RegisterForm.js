@@ -118,7 +118,7 @@ const RegisterForm = ({ loginHandler, registerHandler }) => {
         </label>
         <Field as="select" id="role" name="role">
           <option defaultValue value="choose">
-            Elije tu Rol en el Equipo
+            Elige tu Rol en el Equipo
           </option>
           <option value="leader">Líder (tech leader)</option>
           <option value="member">Miembro (team member)</option>
