@@ -18,7 +18,7 @@ const Login = () => {
   return (
     <section className="form-container">
       <div className="form-container__content">
-        <h2 className="heading-secondary margin-b-md">Iniciar Sesión</h2>
+        <h2 className="heading--secondary margin-b-md">Iniciar Sesión</h2>
         <LoginForm
           registerHandler={goToRegisterHandler}
           loginHandler={loginHandler}

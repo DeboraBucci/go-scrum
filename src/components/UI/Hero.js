@@ -7,7 +7,7 @@ const Hero = () => {
       <div className="hero__brand">
         <img src={Logo} alt="logo" className="hero__img" />
         <div className="hero__text">
-          <h1 className="heading-primary">Go Scrum</h1>
+          <h1 className="heading--primary">Go Scrum</h1>
           <p>Go Scrum or go home!</p>
         </div>
       </div>
