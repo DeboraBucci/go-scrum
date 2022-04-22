@@ -13,6 +13,29 @@
 .margin-t-hg {margin-top: 8rem;}
 
 // DISPLAY
-.hidden{
-    display: none;
-}
+.hidden{ display: none; }
+
+
+// STYLE
+.underline-animation {
+    @include centered-flex;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.5s;
+
+    &:before {
+      content: "";
+      position: absolute;
+      bottom: -.75rem;
+      left: 0;
+      width: 0;
+      height: 1.5px;
+
+      transition: all 0.4s;
+      background-color: $color-primary;
+    }
+
+    &:hover:before {
+      width: 100%;
+    }
+  }
