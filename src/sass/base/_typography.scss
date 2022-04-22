@@ -7,19 +7,24 @@ body {
   font-size: $medium-font-size;
 }
 
-.heading-primary {
+.heading--primary {
   font-family: "Allerta Stencil", sans-serif;
   font-size: 10rem;
   font-weight: 100;
   color: $color-white;
 }
 
-.heading-secondary {
+.heading--secondary {
   font-size: 4rem;
   font-weight: 200;
   color: tint($color-primary, 30%);
+}
 
-  &--tasks {
-    color: $color-white;
-  }
+.heading--tertiary {
+  font-weight: 400;
+  color: $color-white;
+
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
