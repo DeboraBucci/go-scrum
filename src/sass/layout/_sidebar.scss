@@ -35,7 +35,7 @@
 
 .sidebar-opener {
   z-index: 120;
-  border-right: 1px solid #494949;
+  border-right: 1px solid rgba(#999999, 0.2);
   background-color: rgba($color-white, 0.1);
   width: 2rem;
   transition: all 0.3s;
