@@ -2,7 +2,17 @@
 $color-primary: #4c2771;
 $color-primary-tint: #5e308e;
 
+$color-grey-dark: #232323;
+$color-grey: #696969;
+
 $color-white: #fff;
+$color-black: #000;
+
+$color-trivial: #02afff;
+$color-easy: #2eaf2e;
+$color-medium: #ff7b00;
+$color-hard: #dc143c;
+$color-epic: $color-black;
 
 // FONTS
 $tiny-font-size: 0.8rem;
@@ -12,3 +22,7 @@ $medium-font-size: 1.6rem;
 
 $big-font-size: 2rem;
 $huge-font-size: 2.4rem;
+
+// BORDER RADIUS
+$default-border-radius: 3px;
+$round-border-radius: $round-border-radius;
