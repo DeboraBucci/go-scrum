@@ -8,10 +8,6 @@
   padding: 0 3rem;
   border-bottom: 3px solid $color-primary;
 
-  & > * {
-    color: $color-primary !important;
-  }
-
   &__nav {
     @include row-spaced-flex;
     width: 100%;
@@ -33,6 +29,12 @@
     & p {
       font-weight: 500;
       font-size: $big-font-size;
+    }
+
+    & p,
+    & a:link,
+    & a:visited {
+      color: $color-primary;
     }
   }
 
