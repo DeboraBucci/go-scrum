@@ -3,7 +3,7 @@
   border: none;
   font-size: $medium-font-size;
   transition: all 0.2s;
-  border-radius: 3px;
+  border-radius: $default-border-radius;
   padding: 1rem 1.5rem;
 
   &:hover {

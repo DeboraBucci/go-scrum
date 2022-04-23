@@ -23,7 +23,7 @@
 
   &__close-btn {
     right: 1rem;
-    border-radius: 3px;
+    border-radius: $default-border-radius;
 
     background-color: transparent;
 
@@ -58,7 +58,7 @@
     right: -1.5rem;
     background-color: rgba($color-primary, 0.5);
     backdrop-filter: blur(1px);
-    border-radius: 50%;
+    border-radius: $round-border-radius;
   }
 }
 
