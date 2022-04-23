@@ -4,7 +4,7 @@ import * as Yup from "yup";
 
 import TextError from "../UI/TextError";
 
-const AddNewTask = ({ close }) => {
+const AddNewTask = ({ close, tasksHandler, closeSidebarHandler }) => {
   const initialValues = {
     name: "",
     status: "",
@@ -21,7 +21,13 @@ const AddNewTask = ({ close }) => {
   });
 
   const onSubmit = (values) => {
-    console.log(values);
+    const tasksArr = JSON.parse(localStorage.getItem("tasks"));
+    tasksArr.push(values);
+    localStorage.setItem("tasks", JSON.stringify(tasksArr));
+    const newTasksArr = JSON.parse(localStorage.getItem("tasks"));
+    tasksHandler(newTasksArr);
+
+    closeSidebarHandler();
   };
 
   const nameInput = (

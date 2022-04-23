@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import AddNewTask from "../tasks/AddNewTask";
 
-const Sidebar = () => {
+const Sidebar = ({ tasksHandler }) => {
   const [isOpened, setIsOpened] = useState(false);
 
   const openSidebarHandler = () => {
@@ -15,7 +15,11 @@ const Sidebar = () => {
   return (
     <>
       <div className={`sidebar ${isOpened && "sidebar__opened"}`}>
-        <AddNewTask close={closeSidebarHandler} />
+        <AddNewTask
+          close={closeSidebarHandler}
+          tasksHandler={tasksHandler}
+          closeSidebarHandler={closeSidebarHandler}
+        />
 
         <button
           className={`sidebar__close-btn ${!isOpened && "hidden"}`}

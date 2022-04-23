@@ -1,14 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "../header/Header";
-import Sidenav from "../sidebar/Sidebar";
+import Sidebar from "../sidebar/Sidebar";
 import Tasks from "../tasks/Tasks";
 
 const Home = () => {
+  const [tasks, setTasks] = useState([]);
+
+  const tasksHandler = (tasksArr) => {
+    setTasks(tasksArr);
+  };
+
   return (
     <div>
       <Header />
-      <Tasks />
-      <Sidenav />
+      <Tasks tasks={tasks} />
+      <Sidebar tasksHandler={tasksHandler} />
     </div>
   );
 };
