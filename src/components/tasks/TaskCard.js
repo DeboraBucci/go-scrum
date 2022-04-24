@@ -5,10 +5,12 @@ const TaskCard = ({ task }) => {
   const membersEl = membersArr.map((member) => {
     const memberArr = member.trim().split(" ");
     const memberInitials = memberArr.map((name) => name.slice(0, 1));
+    const memberTwoInitials =
+      memberInitials[0] + memberInitials[memberInitials.length - 1];
 
     return (
       <div className="card__member">
-        <p>{memberInitials.join("").toUpperCase()}</p>
+        <p>{memberTwoInitials.toUpperCase()}</p>
         <span>{member.trim()}</span>
       </div>
     );
