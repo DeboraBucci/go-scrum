@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import Hero from "../UI/Hero";
 import LoginForm from "./LoginForm";
 
-const Login = () => {
+const Login = ({ setLogged }) => {
   const navigate = useNavigate();
 
   const goToRegisterHandler = () => {
@@ -12,7 +12,9 @@ const Login = () => {
   };
 
   const loginHandler = (values) => {
-    console.log(values);
+    if (values) {
+      setLogged(true);
+    }
   };
 
   return (

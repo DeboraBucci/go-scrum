@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 import Hero from "../UI/Hero";
 import RegisterForm from "./RegisterForm";
 
@@ -11,7 +12,15 @@ const Register = () => {
   };
 
   const registerHandler = (values) => {
-    console.log(values);
+    Swal.fire({
+      position: "top-start",
+      icon: "success",
+      title: "You've been registered!",
+      showConfirmButton: false,
+      timer: 1500,
+      toast: true,
+      customClass: "swal",
+    });
   };
 
   return (

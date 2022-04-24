@@ -4,6 +4,10 @@ import { Link } from "react-router-dom";
 import Logo from "../../assets/go-scrum-logo.webp";
 
 const Header = () => {
+  const logoutHandler = () => {
+    localStorage.removeItem("logged");
+  };
+
   return (
     <header className="header">
       <nav className="header__nav">
@@ -13,7 +17,11 @@ const Header = () => {
             <p>Welcome, User!</p>
           </li>
           <li className="header__list-item">
-            <Link className="underline-animation" to="/login">
+            <Link
+              className="underline-animation"
+              to="/login"
+              onClick={logoutHandler}
+            >
               Sign Out
             </Link>
           </li>

@@ -53,6 +53,9 @@ body {
   align-items: center;
   gap: 1rem; }
 
+.swal {
+  font-size: 2rem !important; }
+
 .margin-b-tn {
   margin-bottom: 1rem; }
 
@@ -478,8 +481,6 @@ body {
   height: 7rem;
   padding: 0 3rem;
   border-bottom: 3px solid #4c2771; }
-  .header > * {
-    color: #4c2771 !important; }
   .header__nav {
     display: flex;
     justify-content: space-between;
@@ -498,6 +499,10 @@ body {
     .header__list-item p {
       font-weight: 500;
       font-size: 2rem; }
+    .header__list-item p,
+    .header__list-item a:link,
+    .header__list-item a:visited {
+      color: #4c2771; }
   .header__user {
     display: flex;
     justify-content: center;
