@@ -48,11 +48,14 @@
     &--time {
       display: flex;
       align-items: center;
-      gap: 0.5rem;
       color: $color-white;
 
       & input {
-        width: 35%;
+        width: 50%;
+      }
+
+      & span {
+        margin: 0 0.5rem;
       }
     }
   }
@@ -65,10 +68,4 @@
       width: 15rem;
     }
   }
-}
-
-.time {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
 }
