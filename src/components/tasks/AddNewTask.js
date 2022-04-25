@@ -21,6 +21,19 @@ const AddNewTask = ({ close, tasksHandler, closeSidebarHandler }) => {
   });
 
   const onSubmit = (values) => {
+    // ID
+    values.id = values.name + Math.random();
+
+    // Format Members Array Properly
+    const membersArr = values.members.split(",");
+    const filteredArr = membersArr
+      .map((member) => member.trim())
+      .filter((m) => m !== "");
+    const finalArr = filteredArr.map(
+      (name) => name[0].toUpperCase() + name.slice(1).toLowerCase()
+    );
+    values.members = finalArr;
+
     const tasksArr = JSON.parse(localStorage.getItem("tasks"));
     tasksArr.push(values);
     localStorage.setItem("tasks", JSON.stringify(tasksArr));
@@ -82,7 +95,7 @@ const AddNewTask = ({ close, tasksHandler, closeSidebarHandler }) => {
         <i className="fa-solid fa-layer-group"></i>
       </label>
       <Field as="select" id="difficulty" name="difficulty">
-        <option defaultValue value="choose">
+        <option defaultValue value="">
           Dificultad de la Tarea
         </option>
         <option value="trivial">Trivial</option>
@@ -121,7 +134,7 @@ const AddNewTask = ({ close, tasksHandler, closeSidebarHandler }) => {
         as="textarea"
         id="members"
         name="members"
-        placeholder="José Gonzales / Daniela Mendoza / ..."
+        placeholder="José Gonzales, Daniela Mendoza, ..."
       />
     </div>
   );
@@ -138,11 +151,12 @@ const AddNewTask = ({ close, tasksHandler, closeSidebarHandler }) => {
           type="number"
           id="hours"
           name="hours"
-          placeholder="2"
+          placeholder="hours"
           min="0"
           className="num-input"
         />
-        <span>hs</span>
+
+        <span>:</span>
 
         <label htmlFor="minutes">
           <span className="hidden">Minutos que lleva realizar la tarea</span>
@@ -151,12 +165,11 @@ const AddNewTask = ({ close, tasksHandler, closeSidebarHandler }) => {
           type="number"
           id="minutes"
           name="minutes"
-          placeholder="15"
+          placeholder="minutes"
           min="1"
           max="59"
           className="num-input"
         />
-        <span>mins</span>
       </div>
     </div>
   );
