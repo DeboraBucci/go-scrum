@@ -263,6 +263,7 @@ body {
   position: relative;
   padding: 7rem;
   height: 100vh;
+  overflow-y: scroll;
   background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("../assets/tasks-background.webp");
   background-size: cover;
   background-position: center; }
@@ -361,10 +362,11 @@ body {
   .new-task__input-group--time {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
     color: #fff; }
     .new-task__input-group--time input {
-      width: 35%; }
+      width: 50%; }
+    .new-task__input-group--time span {
+      margin: 0 0.5rem; }
 
 .new-task__cta {
   display: flex;
@@ -373,11 +375,6 @@ body {
   gap: 2rem; }
   .new-task__cta--create {
     width: 15rem; }
-
-.time {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem; }
 
 .card {
   position: relative;
@@ -469,6 +466,150 @@ body {
     color: #232323;
     font-size: 2rem;
     cursor: pointer; }
+
+.modal {
+  z-index: 300;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-left: 10px solid transparent;
+  height: 40rem;
+  width: 80rem;
+  padding: 2rem;
+  border-radius: 3px;
+  background-color: #fff;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr 2fr 2fr 2fr 3fr 2fr;
+  column-gap: 2rem; }
+  .modal.trivial {
+    border-color: #02afff; }
+  .modal.easy {
+    border-color: #2eaf2e; }
+  .modal.medium {
+    border-color: #ff7b00; }
+  .modal.hard {
+    border-color: #dc143c; }
+  .modal.epic {
+    border-color: #000; }
+  .modal__title {
+    font-size: 3rem;
+    font-weight: 300;
+    grid-column: 1 / -1;
+    align-self: flex-end;
+    border-bottom: 2px solid #b4b4b4;
+    color: #878787;
+    margin-bottom: 10px; }
+  .modal__difficulty {
+    padding: 1rem;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 1.2rem;
+    color: #fff;
+    grid-row: 2 / 3;
+    align-self: center; }
+    .modal__difficulty.trivial {
+      background-color: #02afff; }
+    .modal__difficulty.easy {
+      background-color: #2eaf2e; }
+    .modal__difficulty.medium {
+      background-color: #ff7b00; }
+    .modal__difficulty.hard {
+      background-color: #dc143c; }
+    .modal__difficulty.epic {
+      background-color: #000; }
+  .modal__time {
+    display: flex;
+    gap: 1rem;
+    background-color: rgba(105, 105, 105, 0.3);
+    padding: 1rem;
+    border-radius: 3px;
+    align-self: baseline;
+    width: max-content;
+    align-items: center; }
+  .modal__members {
+    grid-column: 1 / 2;
+    grid-row: 5 / 6;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    align-self: center;
+    overflow: auto; }
+    .modal__members p {
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      gap: 1rem;
+      border: 1px solid #2fa1ff;
+      background-color: rgba(47, 161, 255, 0.6);
+      color: #fff;
+      padding: 0.5rem;
+      border-radius: 3px;
+      transition: all 0.4s; }
+      .modal__members p:hover {
+        background-color: rgba(47, 161, 255, 0.9); }
+    .modal__members i {
+      cursor: pointer; }
+  .modal__status {
+    grid-row: 3 / 4;
+    background-color: #696969;
+    color: #fff;
+    padding: 1rem;
+    align-self: baseline;
+    text-transform: uppercase; }
+  .modal__description {
+    border: 1px solid #696969;
+    border-radius: 3px;
+    padding: 1rem;
+    grid-column: 2 / -1;
+    grid-row: 2 / -1;
+    background-color: rgba(105, 105, 105, 0.05); }
+  .modal__cta {
+    grid-column: 1 / 2;
+    grid-row: -2 / -1;
+    align-self: flex-end;
+    display: flex;
+    justify-content: space-between;
+    padding-right: 2rem; }
+  .modal__btn {
+    background-color: transparent;
+    font-size: 1.6rem;
+    padding: 1rem 2rem;
+    border-radius: 3px;
+    transition: all 0.2s;
+    cursor: pointer; }
+    .modal__btn--edit {
+      letter-spacing: 0.3rem;
+      border: 1px solid #4c2771;
+      color: #4c2771; }
+      .modal__btn--edit:hover {
+        background-color: rgba(76, 39, 113, 0.8);
+        color: #fff; }
+    .modal__btn--delete {
+      color: crimson;
+      text-decoration: underline; }
+      .modal__btn--delete:hover {
+        text-decoration: none;
+        transform: translateY(-2px); }
+  .modal__btn--x {
+    position: absolute;
+    top: 1.5rem;
+    right: 2rem;
+    font-size: 3rem;
+    cursor: pointer; }
+  .modal__unkown {
+    color: #696969; }
+
+.backdrop {
+  z-index: 250;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(2px); }
 
 .header {
   display: flex;
