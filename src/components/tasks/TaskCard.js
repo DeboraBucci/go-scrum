@@ -1,16 +1,17 @@
 import React from "react";
 
 const TaskCard = ({ task }) => {
-  const membersArr = task.members.split("/");
-  const membersEl = membersArr.map((member) => {
+  const membersEl = task.members.map((member) => {
     const memberArr = member.trim().split(" ");
-    const memberInitials = memberArr.map((name) => name.slice(0, 1));
-    const memberTwoInitials =
-      memberInitials[0] + memberInitials[memberInitials.length - 1];
+    const memberInitialsArr = memberArr.map((name) => name.slice(0, 1));
+    const memberInitials =
+      memberInitialsArr.length > 1
+        ? memberInitialsArr[0] + memberInitialsArr[memberInitialsArr.length - 1]
+        : memberInitialsArr[0];
 
     return (
       <div className="card__member">
-        <p>{memberTwoInitials.toUpperCase()}</p>
+        <p>{memberInitials.toUpperCase()}</p>
         <span>{member.trim()}</span>
       </div>
     );
@@ -28,7 +29,7 @@ const TaskCard = ({ task }) => {
 
       {task.minutes && (
         <div className="card__time">
-          <i class="fa-solid fa-clock"></i>
+          <i className="fa-solid fa-clock"></i>
           <span>
             {task.hours.toLocaleString("en-US", {
               minimumIntegerDigits: 2,
@@ -53,7 +54,7 @@ const TaskCard = ({ task }) => {
       )}
 
       <button className="card__btn">
-        <i class="fa-solid fa-plus"></i>
+        <i className="fa-solid fa-plus"></i>
       </button>
     </div>
   );
