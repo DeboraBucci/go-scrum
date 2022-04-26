@@ -4,7 +4,7 @@ import Sidebar from "../sidebar/Sidebar";
 import Tasks from "../tasks/Tasks";
 
 const Home = () => {
-  const [tasks, setTasks] = useState([]);
+  const [tasks, setTasks] = useState(JSON.parse(localStorage.getItem("tasks")));
 
   const tasksHandler = (tasksArr) => {
     setTasks(tasksArr);
