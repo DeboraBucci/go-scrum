@@ -10,7 +10,7 @@ const TaskCard = ({ task, openModal }) => {
         : memberInitialsArr[0];
 
     return (
-      <div className="card__member">
+      <div className="card__member" key={member}>
         <p>{memberInitials.toUpperCase()}</p>
         <span>{member.trim()}</span>
       </div>
