@@ -4,12 +4,22 @@ const Backdrop = ({ closeModal }) => {
   return <div onClick={closeModal} className="backdrop"></div>;
 };
 
-const Modal = ({ closeModal, curTask }) => {
+const Modal = ({ closeModal, curTask, tasksHandler }) => {
   const closeModalHandler = () => {
     closeModal();
   };
 
   const isTimeSpecified = curTask.hours || curTask.minutes || false;
+
+  const deleteTaskHandler = () => {
+    const filteredArr = JSON.parse(localStorage.getItem("tasks")).filter(
+      (task) => task.id !== curTask.id
+    );
+
+    localStorage.setItem("tasks", JSON.stringify(filteredArr));
+    closeModalHandler();
+    tasksHandler(filteredArr);
+  };
 
   return (
     <div className={`modal ${curTask.difficulty}`}>
@@ -54,7 +64,7 @@ const Modal = ({ closeModal, curTask }) => {
       </p>
       <p className="modal__description">{curTask.description}</p>
 
-      {curTask[0] !== "" && (
+      {curTask.members !== "" && curTask.members[0] !== "" && (
         <div className="modal__members">
           {curTask.members.map((member) => (
             <p key={member}>
@@ -68,7 +78,12 @@ const Modal = ({ closeModal, curTask }) => {
           <i className="fa-solid fa-xmark modal__btn--x"></i>
         </button>
 
-        <button className="modal__btn modal__btn--delete">Borrar</button>
+        <button
+          className="modal__btn modal__btn--delete"
+          onClick={deleteTaskHandler}
+        >
+          Borrar
+        </button>
         <button className="modal__btn modal__btn--edit">
           Editar <i className="fa-solid fa-pen-to-square"></i>
         </button>
@@ -77,7 +92,7 @@ const Modal = ({ closeModal, curTask }) => {
   );
 };
 
-const Overlay = ({ closeModal, taskId }) => {
+const Overlay = ({ closeModal, taskId, tasksHandler }) => {
   // FIND CURRENT TASK
   const tasksArr = JSON.parse(localStorage.getItem("tasks"));
   const curTask = tasksArr.find((task) => task.id === taskId);
@@ -101,7 +116,11 @@ const Overlay = ({ closeModal, taskId }) => {
   return (
     <div onKeyUpCapture={keywordHandler}>
       <Backdrop closeModal={closeModal} />
-      <Modal closeModal={closeModal} curTask={curTask} />
+      <Modal
+        closeModal={closeModal}
+        curTask={curTask}
+        tasksHandler={tasksHandler}
+      />
     </div>
   );
 };

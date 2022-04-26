@@ -28,7 +28,12 @@ const Home = () => {
       <Tasks tasks={tasks} openModal={openModalHandler} />
       <Sidebar tasksHandler={tasksHandler} />
       {modalIsOpened && (
-        <Overlay tasks={tasks} closeModal={closeModalHandler} taskId={taskId} />
+        <Overlay
+          tasks={tasks}
+          closeModal={closeModalHandler}
+          taskId={taskId}
+          tasksHandler={tasksHandler}
+        />
       )}
     </div>
   );
