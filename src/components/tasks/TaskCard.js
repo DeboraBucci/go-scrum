@@ -1,6 +1,6 @@
 import React from "react";
 
-const TaskCard = ({ task }) => {
+const TaskCard = ({ task, openModal }) => {
   const membersEl = task.members.map((member) => {
     const memberArr = member.trim().split(" ");
     const memberInitialsArr = memberArr.map((name) => name.slice(0, 1));
@@ -16,6 +16,10 @@ const TaskCard = ({ task }) => {
       </div>
     );
   });
+
+  const openModalHandler = () => {
+    openModal(task.id);
+  };
 
   return (
     <div className={`card ${task.difficulty}`}>
@@ -53,7 +57,7 @@ const TaskCard = ({ task }) => {
         <div className="card__members margin-t-tn">{membersEl}</div>
       )}
 
-      <button className="card__btn">
+      <button className="card__btn" onClick={openModalHandler}>
         <i className="fa-solid fa-plus"></i>
       </button>
     </div>

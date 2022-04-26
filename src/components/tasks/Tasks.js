@@ -1,12 +1,13 @@
 import React from "react";
 import TaskCard from "./TaskCard";
 
-const Tasks = ({ tasks }) => {
+const Tasks = ({ tasks, openModal }) => {
   const tasksEl = tasks.map((task) => (
     <TaskCard
       key={`${task.title}-${Math.random()}`}
       status={task.status}
       task={task}
+      openModal={openModal}
     />
   ));
 
