@@ -1,21 +1,24 @@
 import React from "react";
 
 const TaskCard = ({ task, openModal }) => {
-  const membersEl = task.members.map((member) => {
-    const memberArr = member.trim().split(" ");
-    const memberInitialsArr = memberArr.map((name) => name.slice(0, 1));
-    const memberInitials =
-      memberInitialsArr.length > 1
-        ? memberInitialsArr[0] + memberInitialsArr[memberInitialsArr.length - 1]
-        : memberInitialsArr[0];
+  const membersEl =
+    task.members !== "" &&
+    task.members.map((member) => {
+      const memberArr = member.trim().split(" ");
+      const memberInitialsArr = memberArr.map((name) => name.slice(0, 1));
+      const memberInitials =
+        memberInitialsArr.length > 1
+          ? memberInitialsArr[0] +
+            memberInitialsArr[memberInitialsArr.length - 1]
+          : memberInitialsArr[0];
 
-    return (
-      <div className="card__member" key={member}>
-        <p>{memberInitials.toUpperCase()}</p>
-        <span>{member.trim()}</span>
-      </div>
-    );
-  });
+      return (
+        <div className="card__member" key={member}>
+          <p>{memberInitials.toUpperCase()}</p>
+          <span>{member.trim()}</span>
+        </div>
+      );
+    });
 
   const openModalHandler = () => {
     openModal(task.id);
