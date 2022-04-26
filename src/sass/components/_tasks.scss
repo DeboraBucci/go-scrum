@@ -2,6 +2,7 @@
   position: relative;
   padding: 7rem;
   height: 100vh;
+  overflow-y: scroll;
 
   background: linear-gradient(rgba($color-black, 0.3), rgba($color-black, 0.3)),
     url("../assets/tasks-background.webp");
