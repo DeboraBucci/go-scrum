@@ -25,14 +25,16 @@ const AddNewTask = ({ close, tasksHandler, closeSidebarHandler }) => {
     values.id = values.name + Math.random();
 
     // Format Members Array Properly
-    const membersArr = values.members.split(",");
-    const filteredArr = membersArr
-      .map((member) => member.trim())
-      .filter((m) => m !== "");
-    const finalArr = filteredArr.map(
-      (name) => name[0].toUpperCase() + name.slice(1).toLowerCase()
-    );
-    values.members = finalArr;
+    if (values.members.length !== 0) {
+      const membersArr = values.members.split(",");
+      const filteredArr = membersArr
+        .map((member) => member.trim())
+        .filter((m) => m !== "");
+      const finalArr = filteredArr.map(
+        (name) => name[0].toUpperCase() + name.slice(1).toLowerCase()
+      );
+      values.members = finalArr;
+    }
 
     const tasksArr = JSON.parse(localStorage.getItem("tasks"));
     tasksArr.push(values);
