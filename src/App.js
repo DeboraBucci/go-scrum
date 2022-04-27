@@ -30,9 +30,10 @@ const RequireNotLogged = ({ children }) => {
 function App() {
   const navigate = useNavigate();
 
-  const loginHandler = () => {
+  const loginHandler = (user) => {
     localStorage.setItem("tasks", JSON.stringify([]));
     localStorage.setItem("logged", true);
+    localStorage.setItem("user", JSON.stringify(user));
 
     navigate("/", { replace: true });
   };
