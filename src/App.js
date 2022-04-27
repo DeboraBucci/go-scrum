@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Navigate, Route, Routes, useNavigate } from "react-router-dom";
 
 import Login from "./components/auth/Login.js";
@@ -28,7 +28,13 @@ const RequireNotLogged = ({ children }) => {
 };
 
 function App() {
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")));
+
   const navigate = useNavigate();
+
+  useEffect(() => {
+    setUser(JSON.parse(localStorage.getItem("user")));
+  }, []);
 
   const loginHandler = (user) => {
     localStorage.setItem("tasks", JSON.stringify([]));
@@ -46,7 +52,7 @@ function App() {
           path="/"
           element={
             <RequireAuth>
-              <Home />
+              <Home user={user} />
             </RequireAuth>
           }
         />
