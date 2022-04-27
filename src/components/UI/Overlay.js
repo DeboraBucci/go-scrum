@@ -64,15 +64,34 @@ const Modal = ({ closeModal, curTask, tasksHandler }) => {
       </p>
       <p className="modal__description">{curTask.description}</p>
 
-      {curTask.members !== "" && curTask.members[0] !== "" && (
-        <div className="modal__members">
-          {curTask.members.map((member) => (
-            <p key={member}>
-              {member} <i className="fa-solid fa-xmark"></i>
-            </p>
-          ))}
+      <div className="modal__people">
+        <div className="modal__group">
+          <p className="modal__group--title">Autor</p>
+          <div className="modal__group--content">
+            <p key={curTask.author}>{curTask.author}</p>
+          </div>
         </div>
-      )}
+
+        <div className="modal__group">
+          <p className="modal__group--title">Miembros</p>
+
+          <div className="modal__group--content">
+            {curTask.members.length === 0 && (
+              <p>No hay ningún miembro para esta tarea.</p>
+            )}
+
+            {curTask.members !== "" && curTask.members[0] !== "" && (
+              <div className="modal__members">
+                {curTask.members.map((member) => (
+                  <p key={member}>
+                    {member} <i className="fa-solid fa-xmark"></i>
+                  </p>
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
       <div className="modal__cta">
         <button onClick={closeModalHandler}>
           <i className="fa-solid fa-xmark modal__btn--x"></i>

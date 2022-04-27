@@ -1,25 +1,7 @@
 import React from "react";
+import { nameInitials } from "../../functions/nameInitials";
 
 const TaskCard = ({ task, openModal }) => {
-  const membersEl =
-    task.members !== "" &&
-    task.members.map((member) => {
-      const memberArr = member.trim().split(" ");
-      const memberInitialsArr = memberArr.map((name) => name.slice(0, 1));
-      const memberInitials =
-        memberInitialsArr.length > 1
-          ? memberInitialsArr[0] +
-            memberInitialsArr[memberInitialsArr.length - 1]
-          : memberInitialsArr[0];
-
-      return (
-        <div className="card__member" key={member}>
-          <p>{memberInitials.toUpperCase()}</p>
-          <span>{member.trim()}</span>
-        </div>
-      );
-    });
-
   const openModalHandler = () => {
     openModal(task.id);
   };
@@ -33,7 +15,6 @@ const TaskCard = ({ task, openModal }) => {
           ? task.description.slice(0, 97) + "..."
           : task.description}
       </p>
-
       {task.minutes && (
         <div className="card__time">
           <i className="fa-solid fa-clock"></i>
@@ -55,11 +36,20 @@ const TaskCard = ({ task, openModal }) => {
           <span> {task.hours ? "hs" : "mins"}</span>
         </div>
       )}
+      <div className="card__members margin-t-tn">
+        <div className="card__member card__member--author">
+          <i className="fa-solid fa-crown"></i>
+          <p>{nameInitials(task.author)}</p>
+          <span>{task.author}</span>
+        </div>
 
-      {task.members && (
-        <div className="card__members margin-t-tn">{membersEl}</div>
-      )}
-
+        {task.members.map((member) => (
+          <div className="card__member" key={member + Date.now()}>
+            <p>{nameInitials(member)}</p>
+            <span>{member}</span>
+          </div>
+        ))}
+      </div>
       <button className="card__btn" onClick={openModalHandler}>
         <i className="fa-solid fa-plus"></i>
       </button>
