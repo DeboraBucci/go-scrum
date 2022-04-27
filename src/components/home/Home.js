@@ -4,13 +4,52 @@ import Sidebar from "../sidebar/Sidebar";
 import Overlay from "../UI/Overlay";
 import Tasks from "../tasks/Tasks";
 
-const Home = () => {
+const Home = ({ user }) => {
   const [tasks, setTasks] = useState(JSON.parse(localStorage.getItem("tasks")));
   const [modalIsOpened, setModalIsOpened] = useState(false);
   const [taskId, setTaskId] = useState(null);
 
-  const tasksHandler = (tasksArr) => {
-    setTasks(tasksArr);
+  const tasksHandler = (values) => {
+    // COPY
+    const taskObj = { ...values };
+
+    // AUTHOR
+    taskObj.author = user.name;
+
+    // ID
+    taskObj.id =
+      taskObj.name
+        .split(" ")
+        .map((n) => n.trim(" "))
+        .join("") + Date.now();
+
+    // MEMBERS
+    if (taskObj.members === "") taskObj.members = [];
+    if (taskObj.members.length > 0) {
+      const membersArr = taskObj.members
+        .toLowerCase()
+        .split(",")
+        .map((member) => {
+          const mName = member
+            .split(" ")
+            .filter((n) => n !== "")
+            .map((n) => n[0].toUpperCase() + n.slice(1))
+            .join(" ");
+
+          return mName;
+        })
+        .filter((n) => n !== "");
+
+      const uniqueMembers = new Set(membersArr);
+      taskObj.members = [...uniqueMembers];
+    }
+
+    // UPDATE TASKS
+    const tasksArr = JSON.parse(localStorage.getItem("tasks"));
+    tasksArr.push(taskObj);
+    localStorage.setItem("tasks", JSON.stringify(tasksArr));
+
+    setTasks(JSON.parse(localStorage.getItem("tasks")));
   };
 
   const openModalHandler = (id) => {
