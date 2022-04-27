@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { users } from "../../data";
 
 import Hero from "../UI/Hero";
 import LoginForm from "./LoginForm";
@@ -12,9 +13,11 @@ const Login = ({ setLogged }) => {
   };
 
   const loginHandler = (values) => {
-    if (values) {
-      setLogged(true);
-    }
+    const userExists = users.filter((user) => user.email === values.email);
+
+    userExists.length !== 0 &&
+      userExists[0].pw === values.password &&
+      setLogged(userExists[0]);
   };
 
   return (
