@@ -12,6 +12,36 @@ const Modal = ({ closeModal, curTask, setTasksHandler }) => {
 
   const isTimeSpecified = curTask.hours || curTask.minutes || false;
 
+  const status = () =>
+    (curTask.status === "codeReview" && "Code Review") ||
+    (curTask.status === "todo" && "To Do") ||
+    curTask.status;
+
+  const statusIcon = () => {
+    switch (curTask.status) {
+      case "backlog":
+        return "comments";
+
+      case "todo":
+        return "thumbtack";
+
+      case "doing":
+        return "list-check";
+
+      case "testing":
+        return "flask-vial";
+
+      case "codeReview":
+        return "magnifying-glass";
+
+      case "done":
+        return "check";
+
+      default:
+        return "";
+    }
+  };
+
   const deleteTaskHandler = () => {
     Swal.fire({
       title: "Estás seguro?",
@@ -82,7 +112,7 @@ const Modal = ({ closeModal, curTask, setTasksHandler }) => {
       )}
 
       <p className="modal__status">
-        {curTask.status} <i className="fa-solid fa-flask-vial"></i>
+        <i className={`fa-solid fa-${statusIcon()}`}></i> {status()}
       </p>
       <p className="modal__description">{curTask.description}</p>
 
