@@ -9,6 +9,10 @@ const Home = ({ user }) => {
   const [modalIsOpened, setModalIsOpened] = useState(false);
   const [taskId, setTaskId] = useState(null);
 
+  const setTasksHandler = (tasks) => {
+    setTasks(tasks);
+  };
+
   const tasksHandler = (values) => {
     // COPY
     const taskObj = { ...values };
@@ -49,7 +53,7 @@ const Home = ({ user }) => {
     tasksArr.push(taskObj);
     localStorage.setItem("tasks", JSON.stringify(tasksArr));
 
-    setTasks(JSON.parse(localStorage.getItem("tasks")));
+    setTasksHandler(JSON.parse(localStorage.getItem("tasks")));
   };
 
   const openModalHandler = (id) => {
@@ -63,15 +67,15 @@ const Home = ({ user }) => {
 
   return (
     <div>
-      <Header />
+      <Header user={user} />
       <Tasks tasks={tasks} openModal={openModalHandler} />
       <Sidebar tasksHandler={tasksHandler} />
       {modalIsOpened && (
         <Overlay
+          setTasksHandler={setTasksHandler}
           tasks={tasks}
           closeModal={closeModalHandler}
           taskId={taskId}
-          tasksHandler={tasksHandler}
         />
       )}
     </div>

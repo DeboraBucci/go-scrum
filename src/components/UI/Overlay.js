@@ -4,7 +4,7 @@ const Backdrop = ({ closeModal }) => {
   return <div onClick={closeModal} className="backdrop"></div>;
 };
 
-const Modal = ({ closeModal, curTask, tasksHandler }) => {
+const Modal = ({ closeModal, curTask, setTasksHandler }) => {
   const closeModalHandler = () => {
     closeModal();
   };
@@ -17,8 +17,9 @@ const Modal = ({ closeModal, curTask, tasksHandler }) => {
     );
 
     localStorage.setItem("tasks", JSON.stringify(filteredArr));
+    setTasksHandler(filteredArr);
+
     closeModalHandler();
-    tasksHandler(filteredArr);
   };
 
   return (
@@ -111,7 +112,7 @@ const Modal = ({ closeModal, curTask, tasksHandler }) => {
   );
 };
 
-const Overlay = ({ closeModal, taskId, tasksHandler }) => {
+const Overlay = ({ closeModal, taskId, setTasksHandler }) => {
   // FIND CURRENT TASK
   const tasksArr = JSON.parse(localStorage.getItem("tasks"));
   const curTask = tasksArr.find((task) => task.id === taskId);
@@ -136,9 +137,9 @@ const Overlay = ({ closeModal, taskId, tasksHandler }) => {
     <div onKeyUpCapture={keywordHandler}>
       <Backdrop closeModal={closeModal} />
       <Modal
+        setTasksHandler={setTasksHandler}
         closeModal={closeModal}
         curTask={curTask}
-        tasksHandler={tasksHandler}
       />
     </div>
   );
