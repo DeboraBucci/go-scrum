@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import Logo from "../../assets/go-scrum-logo.webp";
 
-const Header = () => {
+const Header = ({ user }) => {
   const logoutHandler = () => {
     localStorage.removeItem("logged");
   };
@@ -14,7 +14,7 @@ const Header = () => {
         <img className="header__logo" src={Logo} alt="Logo" />
         <ul className="header__list">
           <li className="header__list-item">
-            <p>Welcome, User!</p>
+            <p>Bienvenido, {user.name}!</p>
           </li>
           <li className="header__list-item">
             <Link
