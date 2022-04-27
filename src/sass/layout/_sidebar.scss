@@ -17,6 +17,11 @@
   transform: translateX(-40rem);
   transition: transform 0.4s;
 
+  &__heading {
+    color: $color-white;
+    margin-left: 2rem;
+  }
+
   &__opened {
     transform: translate(0);
   }

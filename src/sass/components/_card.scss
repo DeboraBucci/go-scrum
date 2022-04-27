@@ -89,6 +89,24 @@
     border: 1px solid tint($color-primary, 40%);
     border-radius: $round-border-radius;
 
+    &--author {
+      border-color: #a57d18;
+      color: #a57d18;
+
+      & i {
+        font-size: $small-font-size;
+        position: absolute;
+        top: -0.7rem;
+        left: -0.7rem;
+        transform: rotate(-40deg);
+        z-index: 5;
+      }
+
+      & span {
+        background-color: #a57d18 !important;
+      }
+    }
+
     & span {
       z-index: 300;
       display: none;

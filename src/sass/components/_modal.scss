@@ -7,7 +7,7 @@
 
   border-left: 10px solid transparent;
 
-  height: 40rem;
+  height: 45rem;
   width: 80rem;
   padding: 2rem;
 
@@ -92,6 +92,32 @@
     align-self: baseline;
     width: max-content;
     align-items: center;
+  }
+
+  &__people {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  &__group {
+    border: 1px solid rgba($color-grey, 0.9);
+    border-radius: $default-border-radius;
+
+    &--title {
+      background-color: rgba($color-grey, 0.9);
+      padding: 0.25rem 1rem;
+
+      color: $color-white;
+      font-size: $small-font-size;
+      text-transform: uppercase;
+    }
+
+    &--content {
+      padding: 0.5rem;
+      max-height: 9rem;
+      overflow-y: auto;
+    }
   }
 
   &__members {
