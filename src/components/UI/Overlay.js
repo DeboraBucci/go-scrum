@@ -81,7 +81,8 @@ const Modal = ({ closeModal, curTask, setTasksHandler }) => {
           curTask.difficulty
         ) : (
           <span className="modal__unkown">
-            Unknown Difficulty <i className="fa-solid fa-circle-question"></i>
+            <i className="fa-solid fa-circle-question"></i> Dificultad
+            Desconocida
           </span>
         )}
       </p>
@@ -107,7 +108,7 @@ const Modal = ({ closeModal, curTask, setTasksHandler }) => {
       )}
       {!isTimeSpecified && (
         <span className="modal__unkown">
-          Time not specified <i className="fa-solid fa-circle-question"></i>
+          <i className="fa-solid fa-circle-question"></i> Tiempo no especificado
         </span>
       )}
 
