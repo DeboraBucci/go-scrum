@@ -15,6 +15,10 @@ const Sidebar = ({ tasksHandler }) => {
   return (
     <>
       <div className={`sidebar ${isOpened && "sidebar__opened"}`}>
+        <h2 className="heading--secondary sidebar__heading margin-t-sm">
+          Crear Nueva Tarea
+        </h2>
+
         <AddNewTask
           close={closeSidebarHandler}
           tasksHandler={tasksHandler}
