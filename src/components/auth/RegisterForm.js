@@ -3,7 +3,7 @@ import React from "react";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import * as Yup from "yup";
 
-import TextError from "../UI/TextError";
+import TextError from "../errors/TextError";
 
 const RegisterForm = ({ loginHandler, registerHandler }) => {
   const initialValues = {
