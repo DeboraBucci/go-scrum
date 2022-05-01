@@ -193,18 +193,6 @@
     transition: all 0.2s;
     cursor: pointer;
 
-    &--edit {
-      letter-spacing: 0.3rem;
-
-      border: 1px solid $color-primary;
-      color: $color-primary;
-
-      &:hover {
-        background-color: rgba($color-primary, 0.8);
-        color: $color-white;
-      }
-    }
-
     &--delete {
       color: crimson;
       text-decoration: underline;

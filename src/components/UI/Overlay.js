@@ -156,9 +156,6 @@ const Modal = ({ closeModal, curTask, setTasksHandler }) => {
         >
           Borrar
         </button>
-        <button className="modal__btn modal__btn--edit">
-          Editar <i className="fa-solid fa-pen-to-square"></i>
-        </button>
       </div>
     </div>
   );
