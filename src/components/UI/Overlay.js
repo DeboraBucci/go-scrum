@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import Swal from "sweetalert2";
 
 const Backdrop = ({ closeModal }) => {
@@ -6,6 +6,9 @@ const Backdrop = ({ closeModal }) => {
 };
 
 const Modal = ({ closeModal, curTask, setTasksHandler }) => {
+  const [titleEdit, setTitleEdit] = useState(false);
+  const titleRef = useRef(null);
+
   const closeModalHandler = () => {
     closeModal();
   };
@@ -73,9 +76,54 @@ const Modal = ({ closeModal, curTask, setTasksHandler }) => {
     });
   };
 
+  const saveHandler = () => {
+    const editedTasks = JSON.parse(localStorage.getItem("tasks")).map((task) =>
+      task.id !== curTask.id ? task : curTask
+    );
+
+    localStorage.setItem("tasks", JSON.stringify(editedTasks));
+
+    setTasksHandler(editedTasks);
+  };
+
+  const titleChangeHandler = () => {
+    setTitleEdit(true);
+  };
+
+  const closeEditTitleHandler = () => {
+    setTitleEdit(false);
+  };
+
+  const saveTitleHandler = () => {
+    closeEditTitleHandler(false);
+
+    const curTitle = titleRef.current.value;
+    if (curTitle.length > 0 && curTitle.length < 20) {
+      curTask.name = titleRef.current.value;
+      saveHandler();
+    }
+  };
+
   return (
     <div className={`modal ${curTask.difficulty}`}>
-      <h4 className="modal__title">{curTask.name}</h4>
+      <div className="modal__title">
+        {titleEdit ? (
+          <div className="modal__t-group">
+            <input defaultValue={curTask.name} ref={titleRef} />
+            <button className="modal__t-group--save" onClick={saveTitleHandler}>
+              <i className="fa-solid fa-check"></i>
+            </button>
+            <button
+              className="modal__t-group--close"
+              onClick={closeEditTitleHandler}
+            >
+              <i className="fa-solid fa-xmark"></i>
+            </button>
+          </div>
+        ) : (
+          <h4 onDoubleClick={titleChangeHandler}>{curTask.name}</h4>
+        )}
+      </div>
       <p className={`modal__difficulty ${curTask.difficulty}`}>
         {curTask.difficulty !== "" ? (
           curTask.difficulty

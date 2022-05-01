@@ -42,14 +42,82 @@
 
   &__title {
     font-size: 3rem;
-    font-weight: 300;
 
     grid-column: 1 / -1;
     align-self: flex-end;
 
-    border-bottom: 2px solid tint($color-grey, 50%);
     color: tint($color-grey, 20%);
     margin-bottom: 10px;
+
+    & h4 {
+      font-weight: 300;
+      padding-left: 1rem;
+      margin-top: 2px;
+      border-bottom: 2px solid tint($color-grey, 50%);
+    }
+  }
+
+  &__t-group {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+
+    & input {
+      font-family: inherit;
+      font-weight: 300;
+      font-size: inherit;
+      color: inherit;
+      border: none;
+      width: 35rem;
+      padding-left: 0.8rem;
+
+      border: 2px solid $color-primary;
+      border-radius: $default-border-radius;
+    }
+
+    & button {
+      cursor: pointer;
+
+      width: 3.5rem;
+      height: 3.5rem;
+
+      border-radius: $default-border-radius;
+      font-size: $medium-font-size;
+
+      color: $color-white;
+
+      transition: all 0.2s;
+
+      &:hover {
+        transform: translateY(-2px);
+      }
+    }
+
+    &--save {
+      background-color: $color-primary;
+
+      &:hover {
+        background-color: tint($color-primary, 20%);
+      }
+    }
+
+    &--close {
+      background-color: transparent;
+      border: 2px solid crimson;
+
+      & i {
+        color: crimson;
+      }
+
+      &:hover {
+        border-color: shade(crimson, 20%);
+        background-color: shade(crimson, 20%);
+
+        & i {
+          color: $color-white;
+        }
+      }
+    }
   }
 
   &__difficulty {
