@@ -12,20 +12,18 @@ const ModalStatus = ({ curTask, saveHandler }) => {
   };
 
   return (
-    <div className="modal__status-group">
+    <div className="modal-status">
       <i className={`fa-solid fa-${statusIcon(curTask.status)}`}></i>
 
       <select
-        className="modal__status"
+        className="modal-status__dropdown"
         key={curTask.status}
         defaultValue={curTask.status}
         onChange={saveDifficultyHandler}
         ref={statusRef}
       >
         {statusOptions.map((opt) => (
-          <option value={opt.val} className="modal__opt">
-            {opt.name}
-          </option>
+          <option value={opt.val}>{opt.name}</option>
         ))}
       </select>
     </div>
