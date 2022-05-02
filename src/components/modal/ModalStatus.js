@@ -17,6 +17,7 @@ const ModalStatus = ({ curTask, saveHandler }) => {
 
       <select
         className="modal__status"
+        key={curTask.status}
         defaultValue={curTask.status}
         onChange={saveDifficultyHandler}
         ref={statusRef}
