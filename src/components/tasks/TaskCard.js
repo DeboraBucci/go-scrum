@@ -15,27 +15,18 @@ const TaskCard = ({ task, openModal }) => {
           ? task.description.slice(0, 97) + "..."
           : task.description}
       </p>
-      {task.minutes && (
-        <div className="card__time">
-          <i className="fa-solid fa-clock"></i>
-          <span>
-            {task.hours.toLocaleString("en-US", {
-              minimumIntegerDigits: 2,
-              useGrouping: false,
-            })}
-          </span>
-          {task.hours && task.minutes && ":"}
-          <span>
-            {task.hours
-              ? task.minutes.toLocaleString("en-US", {
-                  minimumIntegerDigits: 2,
-                  useGrouping: false,
-                })
-              : task.minutes}
-          </span>
-          <span> {task.hours ? "hs" : "mins"}</span>
-        </div>
-      )}
+
+      <div className="card__time">
+        <i className="fa-solid fa-clock"></i>
+        <span>{task.time.hs}</span>
+
+        {task.time.hs && task.time.mins ? ":" : ""}
+
+        <span>{task.time.mins}</span>
+
+        <span> {task.time.hs ? "hs" : "mins"}</span>
+      </div>
+
       <div className="card__members margin-t-tn">
         <div className="card__member card__member--author">
           <i className="fa-solid fa-crown"></i>

@@ -9,10 +9,12 @@ const AddNewTask = ({ close, tasksHandler, closeSidebarHandler }) => {
     name: "",
     status: "",
     difficulty: "",
-    hours: "",
-    minutes: "",
     description: "",
     members: "",
+    time: {
+      hs: "",
+      mins: "",
+    },
   };
 
   const validationSchema = Yup.object({
@@ -92,7 +94,7 @@ const AddNewTask = ({ close, tasksHandler, closeSidebarHandler }) => {
             <Field
               type="number"
               id="hours"
-              name="hours"
+              name="time.hs"
               placeholder="hours"
               min="0"
               className="num-input"
@@ -108,7 +110,7 @@ const AddNewTask = ({ close, tasksHandler, closeSidebarHandler }) => {
             <Field
               type="number"
               id="minutes"
-              name="minutes"
+              name="time.mins"
               placeholder="minutes"
               min="1"
               max="59"
