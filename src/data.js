@@ -28,4 +28,13 @@ const user4 = {
 
 const users = [user1, user2, user3, user4];
 
-export { users };
+const difficultyOptions = [
+  { val: "", name: "Seleccione una dificultad" },
+  { val: "trivial", name: "Trivial" },
+  { val: "easy", name: "Fácil" },
+  { val: "medium", name: "Mediana" },
+  { val: "hard", name: "Difícil" },
+  { val: "epic", name: "Épica" },
+];
+
+export { users, difficultyOptions };
