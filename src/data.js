@@ -37,4 +37,13 @@ const difficultyOptions = [
   { val: "epic", name: "Épica" },
 ];
 
-export { users, difficultyOptions };
+const statusOptions = [
+  { val: "backlog", name: "Backlog" },
+  { val: "todo", name: "To Do" },
+  { val: "doing", name: "Doing" },
+  { val: "testing", name: "Testing" },
+  { val: "codeReview", name: "Code Review" },
+  { val: "done", name: "Done" },
+];
+
+export { users, difficultyOptions, statusOptions };
