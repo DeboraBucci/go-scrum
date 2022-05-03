@@ -3,7 +3,7 @@ import { Navigate, Route, Routes, useNavigate } from "react-router-dom";
 
 import Login from "./components/auth/Login.js";
 import Register from "./components/auth/Register.js";
-import User from "./components/auth/User.js";
+import User from "./components/user/User.js";
 import Error404 from "./components/errors/Error404.js";
 import Home from "./components/home/Home.js";
 
