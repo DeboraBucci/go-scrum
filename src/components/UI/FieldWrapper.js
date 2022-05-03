@@ -1,6 +1,6 @@
 import { ErrorMessage } from "formik";
 import React from "react";
-import TextError from "./TextError";
+import TextError from "../errors/TextError";
 
 const FieldWrapper = ({ children, text, i, name }) => {
   return (
