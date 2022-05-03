@@ -25,3 +25,12 @@ li {
 button {
   border: none;
 }
+
+p {
+  word-break: break-all;
+}
+
+option {
+  background-color: tint($color-grey, 90%);
+  color: #232323;
+}
