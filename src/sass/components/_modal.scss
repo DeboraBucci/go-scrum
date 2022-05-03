@@ -220,6 +220,7 @@
   border-radius: $default-border-radius;
 
   height: 100%;
+  overflow: hidden;
 
   &__title {
     background-color: rgba($color-grey, 0.9);
