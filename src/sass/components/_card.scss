@@ -70,8 +70,12 @@
   }
 
   &__members {
+    position: relative;
     display: flex;
     gap: 0.5rem;
+
+    padding-left: 0.5rem;
+    margin: 3rem 0;
   }
 
   &__member {
@@ -126,6 +130,21 @@
         position: absolute;
         top: 3rem;
       }
+    }
+
+    & i {
+      position: absolute;
+      font-size: 1rem;
+    }
+  }
+
+  &__left-members {
+    color: $color-grey;
+    border-color: $color-grey;
+
+    & p {
+      padding-right: 0.4rem;
+      padding-top: 0.1rem;
     }
   }
 
