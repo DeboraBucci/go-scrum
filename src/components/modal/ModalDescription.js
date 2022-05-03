@@ -36,7 +36,7 @@ const ModalDescription = ({ curTask, saveHandler }) => {
 
   // CONTENT ---------------------------------------------------------------
   const edit = (
-    <div className="modal__description-group">
+    <div className="modal-description__edit">
       <textarea
         ref={descInp}
         cols={40}
@@ -45,15 +45,15 @@ const ModalDescription = ({ curTask, saveHandler }) => {
         defaultValue={curTask.description}
       />
 
-      <div className="modal__description-group--btns">
+      <div className="modal-description__btn">
         <button
-          className="modal__description-group--save"
+          className="modal-description__btn--save"
           onClick={saveDescriptionHandler}
         >
           Save
         </button>
         <button
-          className="modal__description-group--cancel"
+          className="modal-description__btn--cancel"
           onClick={closeEditDescriptionHandler}
         >
           Cancel
@@ -70,7 +70,7 @@ const ModalDescription = ({ curTask, saveHandler }) => {
   // xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
   return (
-    <div className="modal__description" ref={descBox}>
+    <div className="modal-description" ref={descBox}>
       {content}
     </div>
   );
