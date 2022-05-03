@@ -23,7 +23,9 @@ const ModalStatus = ({ curTask, saveHandler }) => {
         ref={statusRef}
       >
         {statusOptions.map((opt) => (
-          <option value={opt.val}>{opt.name}</option>
+          <option key={opt.val} value={opt.val}>
+            {opt.name}
+          </option>
         ))}
       </select>
     </div>
