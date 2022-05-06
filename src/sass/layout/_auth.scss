@@ -1,0 +1,144 @@
+.login,
+.register {
+  display: grid;
+  grid-template-columns: 55% 45%;
+  grid-template-rows: 100vh;
+
+  &__content {
+    @include centered-flex;
+    flex-direction: column;
+  }
+
+  &__cta {
+    display: flex;
+    justify-content: space-between;
+    gap: 10rem;
+  }
+}
+
+.login {
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    font-size: $big-font-size;
+  }
+}
+
+.register {
+  &__form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 4rem;
+    row-gap: 2rem;
+
+    position: relative;
+  }
+
+  &__box {
+    &.disabled {
+      filter: grayscale(100%);
+      opacity: 0.4;
+    }
+
+    &--5 {
+      z-index: 10;
+    }
+
+    &--7 {
+      transition: opacity 0.3s, transform 0.8s;
+      opacity: 1;
+      transform: translateY(-1.5rem);
+
+      &.hidden-input {
+        z-index: -10;
+        opacity: 0;
+        transform: translateY(-9rem);
+        pointer-events: none !important;
+      }
+    }
+
+    &--8 {
+      grid-column: 1/-1;
+
+      & span {
+        font-size: $medium-font-size;
+      }
+    }
+
+    &--9 {
+      grid-column: 1/-1;
+
+      & input {
+        width: 100%;
+      }
+    }
+
+    &--10 {
+      grid-column: 1/-1;
+      justify-self: center;
+
+      display: flex;
+      gap: 5rem;
+
+      & > * {
+        width: 12rem;
+      }
+    }
+  }
+}
+
+.input-group {
+  @include centered-flex;
+  justify-content: space-between;
+
+  color: $color-white;
+  background-color: $color-primary;
+
+  border: 2px solid $color-primary;
+  border-radius: $default-border-radius;
+
+  transition: all 0.3s;
+
+  & label {
+    @include centered-flex;
+    min-width: 6rem;
+  }
+
+  & textarea {
+    color: $color-grey;
+    font-size: $medium-font-size;
+    font-family: inherit;
+    padding: 1rem;
+    width: 30rem;
+  }
+
+  & input,
+  & select {
+    font-size: $medium-font-size;
+
+    background-color: $color-white;
+    clip-path: polygon(5% 0, 0 100%, 100% 100%, 100% 0);
+
+    border: none;
+    padding: 1rem;
+    width: 30rem;
+    text-align: center;
+  }
+
+  & select {
+    cursor: pointer;
+  }
+
+  &__dropdown {
+    position: relative;
+
+    &--i {
+      position: absolute;
+      right: 1rem;
+      pointer-events: none;
+      background: none !important;
+      color: $color-primary;
+    }
+  }
+}
