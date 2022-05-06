@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Header from "../header/Header";
 import Sidebar from "../sidebar/Sidebar";
 import Overlay from "../UI/Overlay";
 import Tasks from "../tasks/Tasks";
@@ -67,7 +66,6 @@ const Home = ({ user }) => {
 
   return (
     <div>
-      <Header user={user} />
       <Tasks tasks={tasks} openModal={openModalHandler} />
       <Sidebar tasksHandler={tasksHandler} />
       {modalIsOpened && (
