@@ -1,65 +1,46 @@
 import React from "react";
 
-import { ErrorMessage, Field, Form, Formik } from "formik";
+import { Form, Formik } from "formik";
 import * as Yup from "yup";
 
-import TextError from "../errors/TextError";
+import AuthInputGroup from "./AuthInputGroup";
+import { requiredMessage } from "../../data";
 
 const LoginForm = ({ registerHandler, loginHandler }) => {
   const initialValues = {
-    email: "",
+    userName: "",
     password: "",
   };
 
   const validationSchema = Yup.object({
-    email: Yup.string().email("Invalid email format").required("Required"),
+    userName: Yup.string().required(requiredMessage),
     password: Yup.string()
       .min(6, "La contraseña debe tener al menos seis caracteres.")
-      .required("Required"),
+      .required(requiredMessage),
   });
 
   const onSubmit = (values) => {
     loginHandler(values);
   };
 
-  const emailInput = (
-    <>
-      <div className="form__input-group">
-        <label htmlFor="email">
-          <span className="hidden">Email</span>
-          <i className="fa-regular fa-at"></i>
-        </label>
-        <Field
-          type="text"
-          id="email"
-          name="email"
-          placeholder="Correo Electrónico"
-        />
-      </div>
-      <ErrorMessage name="email" component={TextError} />
-    </>
+  const userNameInput = (
+    <AuthInputGroup
+      label="Nombre de usuario"
+      name="userName"
+      icon="fa-solid fa-key"
+    />
   );
 
   const passwordInput = (
-    <>
-      <div className="form__input-group">
-        <label htmlFor="password">
-          <span className="hidden">Contraseña</span>
-          <i className="fa-solid fa-key"></i>
-        </label>
-        <Field
-          type="password"
-          id="password"
-          name="password"
-          placeholder="Contraseña"
-        />
-      </div>
-      <ErrorMessage name="password" component={TextError} />
-    </>
+    <AuthInputGroup
+      label="Contraseña"
+      name="password"
+      icon="fa-solid fa-user"
+    />
   );
 
   const cta = (
-    <div className="form__cta">
+    <div className="login__cta margin-t-sm">
       <button type="submit" className="button button--purple">
         Iniciar Sesión
       </button>
@@ -79,8 +60,8 @@ const LoginForm = ({ registerHandler, loginHandler }) => {
       validationSchema={validationSchema}
       onSubmit={onSubmit}
     >
-      <Form className="form">
-        <div>{emailInput}</div>
+      <Form className="login__form form">
+        <div>{userNameInput}</div>
         <div>{passwordInput}</div>
         {cta}
       </Form>
