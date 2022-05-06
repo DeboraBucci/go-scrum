@@ -8,29 +8,34 @@ import Error404 from "./components/errors/Error404.js";
 import Home from "./components/home/Home.js";
 import Header from "./components/header/Header.js";
 
-const RequireAuth = ({ children, to, check = true }) => {
-  if (check) return <Navigate to={to} replace={true} />;
+const RequireAuth = ({ children }) => {
+  const logged = localStorage.getItem("token");
+  if (!logged) return <Navigate to={"/login"} replace={true} />;
+  return children;
+};
+
+const RequireNotLogged = ({ children }) => {
+  const logged = localStorage.getItem("token");
+  if (logged) return <Navigate to={"/"} replace={true} />;
   return children;
 };
 
 function App() {
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")));
-  const [token, setToken] = useState(localStorage.getItem("token"));
 
   useEffect(() => {
     setUser(JSON.parse(localStorage.getItem("user")));
-    setToken(localStorage.getItem("token"));
   }, []);
 
   return (
     <React.Fragment>
-      {token && <Header user={user} />}
+      {useState(localStorage.getItem("token")) && <Header user={user} />}
       <Routes>
         <Route
           exact
           path="/"
           element={
-            <RequireAuth to="/login">
+            <RequireAuth>
               <Home user={user} />
             </RequireAuth>
           }
@@ -38,7 +43,7 @@ function App() {
         <Route
           path="/user"
           element={
-            <RequireAuth to="/login">
+            <RequireAuth>
               <User />
             </RequireAuth>
           }
@@ -46,17 +51,17 @@ function App() {
         <Route
           path="/login"
           element={
-            <RequireAuth to="/" check={token}>
+            <RequireNotLogged>
               <Login />
-            </RequireAuth>
+            </RequireNotLogged>
           }
         />
         <Route
           path="/register"
           element={
-            <RequireAuth to="/" check={token}>
+            <RequireNotLogged>
               <Register />
-            </RequireAuth>
+            </RequireNotLogged>
           }
         />
         <Route path="*" element={<Error404 />} />
