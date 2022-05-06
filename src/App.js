@@ -1,57 +1,36 @@
 import React, { useEffect, useState } from "react";
-import { Navigate, Route, Routes, useNavigate } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 
 import Login from "./components/auth/Login.js";
 import Register from "./components/auth/Register.js";
 import User from "./components/user/User.js";
 import Error404 from "./components/errors/Error404.js";
 import Home from "./components/home/Home.js";
+import Header from "./components/header/Header.js";
 
-const RequireAuth = ({ children }) => {
-  const isLogged = localStorage.getItem("logged");
-
-  if (!isLogged) {
-    return <Navigate to={"/login"} replace={true} />;
-  }
-
-  return children;
-};
-
-const RequireNotLogged = ({ children }) => {
-  const isLogged = localStorage.getItem("logged");
-
-  if (isLogged) {
-    return <Navigate to={"/"} replace={true} />;
-  }
-
+const RequireAuth = ({ children, to, check = true }) => {
+  if (check) return <Navigate to={to} replace={true} />;
   return children;
 };
 
 function App() {
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")));
-
-  const navigate = useNavigate();
+  const [token, setToken] = useState(localStorage.getItem("token"));
 
   useEffect(() => {
     setUser(JSON.parse(localStorage.getItem("user")));
+    setToken(localStorage.getItem("token"));
   }, []);
-
-  const loginHandler = (user) => {
-    localStorage.setItem("tasks", JSON.stringify([]));
-    localStorage.setItem("logged", true);
-    localStorage.setItem("user", JSON.stringify(user));
-
-    navigate("/", { replace: true });
-  };
 
   return (
     <React.Fragment>
+      {token && <Header user={user} />}
       <Routes>
         <Route
           exact
           path="/"
           element={
-            <RequireAuth>
+            <RequireAuth to="/login">
               <Home user={user} />
             </RequireAuth>
           }
@@ -59,7 +38,7 @@ function App() {
         <Route
           path="/user"
           element={
-            <RequireAuth>
+            <RequireAuth to="/login">
               <User />
             </RequireAuth>
           }
@@ -67,17 +46,17 @@ function App() {
         <Route
           path="/login"
           element={
-            <RequireNotLogged>
-              <Login setLogged={loginHandler} />
-            </RequireNotLogged>
+            <RequireAuth to="/" check={token}>
+              <Login />
+            </RequireAuth>
           }
         />
         <Route
           path="/register"
           element={
-            <RequireNotLogged>
+            <RequireAuth to="/" check={token}>
               <Register />
-            </RequireNotLogged>
+            </RequireAuth>
           }
         />
         <Route path="*" element={<Error404 />} />
