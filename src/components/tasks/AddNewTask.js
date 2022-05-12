@@ -9,6 +9,7 @@ const AddNewTask = ({ close, tasksHandler, closeSidebarHandler }) => {
     name: "",
     status: "",
     difficulty: "",
+    importance: "",
     description: "",
     members: "",
     time: {
@@ -60,6 +61,22 @@ const AddNewTask = ({ close, tasksHandler, closeSidebarHandler }) => {
             <option value="testing">Testing</option>
             <option value="codeReview">Code Review</option>
             <option value="done">Done</option>
+          </Field>
+        </FieldWrapper>
+
+        {/* IMPORTANCE INPUT */}
+        <FieldWrapper
+          name="importance"
+          text="Estado Actual de la Tarea"
+          i="fa-solid fa-circle-exclamation"
+        >
+          <Field as="select" id="importance" name="importance">
+            <option defaultValue value="choose">
+              Elige la importancia de la tarea
+            </option>
+            <option value="low">Low</option>
+            <option value="medium">Medium</option>
+            <option value="high">High</option>
           </Field>
         </FieldWrapper>
 
