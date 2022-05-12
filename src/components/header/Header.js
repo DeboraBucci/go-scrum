@@ -3,10 +3,8 @@ import { Link } from "react-router-dom";
 
 import Logo from "../../assets/go-scrum-logo.webp";
 
-const Header = ({ user }) => {
-  const logoutHandler = () => {
-    localStorage.removeItem("logged");
-  };
+const Header = () => {
+  const logoutHandler = () => localStorage.clear();
 
   return (
     <header className="header">
@@ -14,7 +12,9 @@ const Header = ({ user }) => {
         <img className="header__logo" src={Logo} alt="Logo" />
         <ul className="header__list">
           <li className="header__list-item">
-            <p>Bienvenido, {user.name}!</p>
+            <p>
+              Bienvenido, {JSON.parse(localStorage.getItem("user")).userName}!
+            </p>
           </li>
           <li className="header__list-item">
             <Link
