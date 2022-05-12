@@ -7,7 +7,7 @@ import LoginForm from "./LoginForm";
 
 const { REACT_APP_API_ENDPOINT } = process.env;
 
-const Login = ({ setLogged }) => {
+const Login = () => {
   const navigate = useNavigate();
 
   const goToRegisterHandler = () => {
@@ -29,11 +29,10 @@ const Login = ({ setLogged }) => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         if (data.status_code === 200) {
           localStorage.setItem("token", data.result?.token);
-          localStorage.setItem("userName", data?.result?.user.userName);
-          localStorage.setItem("user", JSON.stringify(data));
+          localStorage.setItem("tasks", JSON.stringify([]));
+          localStorage.setItem("user", JSON.stringify(data.result.user));
 
           navigate("/", { replace: true });
         } else {
