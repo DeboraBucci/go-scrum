@@ -27,7 +27,7 @@ const LoginForm = ({ registerHandler, loginHandler }) => {
     <AuthInputGroup
       label="Nombre de usuario"
       name="userName"
-      icon="fa-solid fa-key"
+      icon="fa-solid fa-user"
     />
   );
 
@@ -35,7 +35,8 @@ const LoginForm = ({ registerHandler, loginHandler }) => {
     <AuthInputGroup
       label="Contraseña"
       name="password"
-      icon="fa-solid fa-user"
+      icon="fa-solid fa-key"
+      type="password"
     />
   );
 
