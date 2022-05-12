@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import Sidebar from "../sidebar/Sidebar";
 import Overlay from "../UI/Overlay";
 import Tasks from "../tasks/Tasks";
+import Header from "../header/Header";
 
-const Home = ({ user }) => {
+const Home = () => {
   const [tasks, setTasks] = useState(JSON.parse(localStorage.getItem("tasks")));
   const [modalIsOpened, setModalIsOpened] = useState(false);
   const [taskId, setTaskId] = useState(null);
@@ -17,7 +18,7 @@ const Home = ({ user }) => {
     const taskObj = { ...values };
 
     // AUTHOR
-    taskObj.author = user.name;
+    taskObj.author = localStorage.getItem("username");
 
     // ID
     taskObj.id =
@@ -66,6 +67,7 @@ const Home = ({ user }) => {
 
   return (
     <div>
+      <Header />
       <Tasks tasks={tasks} openModal={openModalHandler} />
       <Sidebar tasksHandler={tasksHandler} />
       {modalIsOpened && (
