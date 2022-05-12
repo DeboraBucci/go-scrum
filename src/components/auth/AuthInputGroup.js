@@ -2,7 +2,15 @@ import React from "react";
 import { ErrorMessage, Field } from "formik";
 import TextError from "../errors/TextError";
 
-const AuthInputGroup = ({ children, name, icon, label, as, disabled }) => {
+const AuthInputGroup = ({
+  children,
+  name,
+  icon,
+  label,
+  as,
+  disabled,
+  type = "text",
+}) => {
   return (
     <>
       <div className="input-group">
@@ -12,7 +20,7 @@ const AuthInputGroup = ({ children, name, icon, label, as, disabled }) => {
         </label>
         <Field
           as={as}
-          type="text"
+          type={type}
           id={name}
           name={name}
           placeholder={label}
