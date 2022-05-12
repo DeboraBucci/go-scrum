@@ -1,4 +1,5 @@
 import React from "react";
+import { pickBackgroundImage } from "../../functions/pickBackgroundImage";
 import TaskCard from "./TaskCard";
 
 const Tasks = ({ tasks, openModal }) => {
@@ -11,8 +12,10 @@ const Tasks = ({ tasks, openModal }) => {
     />
   ));
 
+  const curUserBackground = pickBackgroundImage();
+
   return (
-    <section className="tasks">
+    <section className={`tasks ${curUserBackground}`}>
       <h2 className="heading--secondary">Tareas</h2>
 
       <div className="tasks__columns">
