@@ -89,6 +89,7 @@ const RegisterForm = ({ loginHandler, registerHandler, dropdownsData }) => {
                 label="Contraseña"
                 icon="fa-solid fa-key"
                 name="password"
+                type="password"
               />
             </div>
 
@@ -98,6 +99,7 @@ const RegisterForm = ({ loginHandler, registerHandler, dropdownsData }) => {
                 label="Confirmar Contraseña"
                 icon="fa-solid fa-key"
                 name="passwordCheck"
+                type="password"
               />
             </div>
 

@@ -1,8 +1,8 @@
-import { ErrorMessage } from "formik";
 import React from "react";
+import { ErrorMessage } from "formik";
 import TextError from "../errors/TextError";
 
-const FieldWrapper = ({ children, text, i, name }) => {
+const TaskInputGroup = ({ children, text, i, name }) => {
   return (
     <div className="new-task__input-group">
       <label htmlFor={name}>
@@ -21,4 +21,4 @@ const FieldWrapper = ({ children, text, i, name }) => {
   );
 };
 
-export default FieldWrapper;
+export default TaskInputGroup;

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Sidebar from "../sidebar/Sidebar";
-import Overlay from "../UI/Overlay";
+import Overlay from "../modal/Overlay";
 import Tasks from "../tasks/Tasks";
 import Header from "../header/Header";
 
@@ -18,7 +18,7 @@ const Home = () => {
     const taskObj = { ...values };
 
     // AUTHOR
-    taskObj.author = localStorage.getItem("username");
+    taskObj.author = JSON.parse(localStorage.getItem("user")).userName;
 
     // ID
     taskObj.id =

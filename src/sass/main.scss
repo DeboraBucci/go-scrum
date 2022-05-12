@@ -8,14 +8,14 @@
 @import "./base/utilities";
 
 @import "./components/hero";
-@import "./components/error404";
-@import "./components/tasks";
 @import "./components/buttons";
-@import "./components/new-task";
 @import "./components/card";
-@import "./components/modal";
 @import "./components/backdrop";
 
+@import "./layout/new-task";
+@import "./layout/tasks";
+@import "./layout/modal";
+@import "./layout/error404";
 @import "./layout/header";
 @import "./layout/sidebar";
 @import "./layout/auth";

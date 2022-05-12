@@ -3,9 +3,9 @@ import { useNavigate } from "react-router-dom";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Swal from "sweetalert2";
 
 import Hero from "../UI/Hero";
+import SweetAlert from "../UI/SweetAlert";
 import RegisterForm from "./RegisterForm";
 
 const { REACT_APP_API_ENDPOINT } = process.env;
@@ -57,11 +57,9 @@ const Register = () => {
       // IF NOT OK
       else throw new Error("");
     } catch (err) {
-      Swal.fire({
-        icon: "error",
+      SweetAlert({
         title: "Something went wrong",
         text: err.message,
-        customClass: "swal",
       });
     }
   };

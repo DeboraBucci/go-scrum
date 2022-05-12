@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect } from "react";
-import Modal from "../modal/Modal";
+import Modal from "./Modal";
 
 const Backdrop = ({ closeModal }) => {
   return <div onClick={closeModal} className="backdrop"></div>;
@@ -9,7 +9,6 @@ const Overlay = ({ closeModal, taskId, setTasksHandler }) => {
   // FIND CURRENT TASK
   const tasksArr = JSON.parse(localStorage.getItem("tasks"));
   const curTask = tasksArr.find((task) => task.id === taskId);
-  // xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
   // DETECT KEY PRESS
   const keywordHandler = useCallback(
@@ -24,7 +23,6 @@ const Overlay = ({ closeModal, taskId, setTasksHandler }) => {
   useEffect(() => {
     document.addEventListener("keydown", keywordHandler, false);
   }, [keywordHandler]);
-  // xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
   return (
     <div onKeyUpCapture={keywordHandler}>

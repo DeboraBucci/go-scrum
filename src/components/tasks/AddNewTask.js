@@ -2,7 +2,7 @@ import React from "react";
 import { Field, Form, Formik } from "formik";
 import * as Yup from "yup";
 
-import FieldWrapper from "../UI/FieldWrapper";
+import TaskInputGroup from "./TaskInputGroup";
 
 const AddNewTask = ({ close, tasksHandler, closeSidebarHandler }) => {
   const initialValues = {
@@ -32,7 +32,7 @@ const AddNewTask = ({ close, tasksHandler, closeSidebarHandler }) => {
     <Form className="new-task__form">
       <div className="new-task__content">
         {/* NAME INPUT */}
-        <FieldWrapper
+        <TaskInputGroup
           name="name"
           text="Nombre de la Tarea"
           i="fa-solid fa-feather-pointed"
@@ -43,10 +43,10 @@ const AddNewTask = ({ close, tasksHandler, closeSidebarHandler }) => {
             name="name"
             placeholder="Nombre de la Tarea"
           />
-        </FieldWrapper>
+        </TaskInputGroup>
 
         {/* STATUS DROPDOWN */}
-        <FieldWrapper
+        <TaskInputGroup
           name="status"
           text="Estado Actual de la Tarea"
           i="fa-solid fa-chart-simple"
@@ -62,10 +62,10 @@ const AddNewTask = ({ close, tasksHandler, closeSidebarHandler }) => {
             <option value="codeReview">Code Review</option>
             <option value="done">Done</option>
           </Field>
-        </FieldWrapper>
+        </TaskInputGroup>
 
         {/* IMPORTANCE INPUT */}
-        <FieldWrapper
+        <TaskInputGroup
           name="importance"
           text="Estado Actual de la Tarea"
           i="fa-solid fa-circle-exclamation"
@@ -78,10 +78,10 @@ const AddNewTask = ({ close, tasksHandler, closeSidebarHandler }) => {
             <option value="medium">Medium</option>
             <option value="high">High</option>
           </Field>
-        </FieldWrapper>
+        </TaskInputGroup>
 
         {/* DIFFICULTY DROPDOWN */}
-        <FieldWrapper
+        <TaskInputGroup
           name="difficulty"
           text="Dificultad de la Tarea"
           i="fa-solid fa-layer-group"
@@ -96,7 +96,7 @@ const AddNewTask = ({ close, tasksHandler, closeSidebarHandler }) => {
             <option value="hard">Difícil</option>
             <option value="epic">Épica</option>
           </Field>
-        </FieldWrapper>
+        </TaskInputGroup>
 
         {/* TIME INPUTS  */}
         <div className="new-task__input-group">
@@ -137,7 +137,7 @@ const AddNewTask = ({ close, tasksHandler, closeSidebarHandler }) => {
         </div>
 
         {/* DESCRIPTION INPUT  */}
-        <FieldWrapper
+        <TaskInputGroup
           name="description"
           text="Descripción"
           i="fa-solid fa-quote-left"
@@ -150,10 +150,10 @@ const AddNewTask = ({ close, tasksHandler, closeSidebarHandler }) => {
             name="description"
             placeholder="Descripción"
           />
-        </FieldWrapper>
+        </TaskInputGroup>
 
         {/* MEMBERS INPUT  */}
-        <FieldWrapper
+        <TaskInputGroup
           name="members"
           text="Miembros"
           i="fa-solid fa-people-group"
@@ -164,7 +164,7 @@ const AddNewTask = ({ close, tasksHandler, closeSidebarHandler }) => {
             name="members"
             placeholder="José Gonzales, Daniela Mendoza, ..."
           />
-        </FieldWrapper>
+        </TaskInputGroup>
       </div>
 
       <div className="new-task__cta">

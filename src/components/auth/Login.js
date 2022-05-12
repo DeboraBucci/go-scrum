@@ -1,9 +1,9 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import Swal from "sweetalert2";
 
 import Hero from "../UI/Hero";
 import LoginForm from "./LoginForm";
+import SweetAlert from "../UI/SweetAlert";
 
 const { REACT_APP_API_ENDPOINT } = process.env;
 
@@ -40,10 +40,8 @@ const Login = () => {
         }
       })
       .catch(() =>
-        Swal.fire({
-          icon: "error",
+        SweetAlert({
           title: "Invalid credentials",
-          customClass: "swal",
         })
       );
   };
