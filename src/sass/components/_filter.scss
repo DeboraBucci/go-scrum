@@ -1,0 +1,56 @@
+.filter {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.5rem 2rem;
+  margin-bottom: 1.5rem;
+  background-color: rgba($color-primary, 0.4);
+  border-radius: $default-border-radius;
+
+  & > * {
+    color: $color-white;
+  }
+
+  &__title {
+    font-weight: 400;
+    font-size: $big-font-size;
+  }
+
+  &__group {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+  }
+
+  & select {
+    text-transform: uppercase;
+  }
+
+  & select,
+  & input {
+    padding: 0.5rem;
+    border: none;
+    border-radius: $default-border-radius;
+    background: rgba($color-white, 0.8);
+  }
+
+  & button {
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    color: $color-white;
+    font-size: $medium-font-size;
+
+    &:disabled {
+      opacity: 0.3 !important;
+    }
+  }
+
+  & div div {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+}
