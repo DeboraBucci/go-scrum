@@ -1,9 +1,14 @@
-import React from "react";
-import { pickBackgroundImage } from "../../functions/pickBackgroundImage";
+import React, { useState } from "react";
+
+import FilterTasks from "./FilterTasks";
 import TaskCard from "./TaskCard";
 
+import { pickBackgroundImage } from "../../functions/pickBackgroundImage";
+
 const Tasks = ({ tasks, openModal }) => {
-  const tasksEl = tasks.map((task) => (
+  const [renderTasks, SetRenderTasks] = useState(tasks);
+
+  const tasksEl = renderTasks.map((task) => (
     <TaskCard
       key={`${task.title}-${Math.random()}`}
       status={task.status}
@@ -18,6 +23,7 @@ const Tasks = ({ tasks, openModal }) => {
     <section className={`tasks ${curUserBackground}`}>
       <h2 className="heading--secondary">Tareas</h2>
 
+      <FilterTasks SetRenderTasks={SetRenderTasks} tasks={tasks} />
       <div className="tasks__columns">
         <div className="tasks__status">
           <h3 className="heading--tertiary margin-b-tn">
