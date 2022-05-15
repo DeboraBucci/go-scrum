@@ -48,6 +48,9 @@ const Home = () => {
       taskObj.members = [...uniqueMembers];
     }
 
+    // DATE
+    taskObj.date = new Date();
+
     // UPDATE TASKS
     const tasksArr = JSON.parse(localStorage.getItem("tasks"));
     tasksArr.push(taskObj);
