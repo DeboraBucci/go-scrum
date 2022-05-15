@@ -1,4 +1,5 @@
 import React from "react";
+import { getTime } from "../../functions/calculateTaskTimeSinceCreation";
 import { nameInitials } from "../../functions/nameInitials";
 
 const TaskCard = ({ task, openModal }) => {
@@ -89,6 +90,9 @@ const TaskCard = ({ task, openModal }) => {
         {author}
         {membersList}
         {leftMembers}
+      </div>
+      <div className="card__date">
+        <i className="fa-solid fa-clock-rotate-left"></i> {getTime(task.date)}
       </div>
       {cta}
     </div>
