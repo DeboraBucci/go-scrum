@@ -168,6 +168,12 @@
     }
   }
 
+  &__date {
+    color: $color-grey;
+    font-size: $small-font-size;
+    padding: 0.75rem;
+  }
+
   &__btn {
     position: absolute;
     top: 0.5rem;
