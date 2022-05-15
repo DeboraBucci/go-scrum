@@ -2,7 +2,7 @@ import { Switch } from "@mui/material";
 import React, { useCallback, useEffect, useState } from "react";
 
 import { calculateDifficultyPoints } from "../../functions/calculateDifficultyPoints";
-import { sumMinutesInTask } from "../../functions/sumMinutesInTask";
+import { sumMinutesInTask } from "../../functions/calculateTotalMinutesInTask";
 import { difficultyOpt, importanceOpt, username } from "../../data";
 
 const FilterTasks = ({ SetRenderTasks, tasks }) => {
