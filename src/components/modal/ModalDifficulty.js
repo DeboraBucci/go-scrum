@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { difficultyOptions } from "../../data";
+import { difficultyOpt } from "../../data";
 
 const ModalDifficulty = ({ curTask, saveHandler }) => {
   const difficultyRef = useRef(null);
@@ -16,7 +16,10 @@ const ModalDifficulty = ({ curTask, saveHandler }) => {
       onChange={saveDifficultyHandler}
       ref={difficultyRef}
     >
-      {difficultyOptions.map((opt) => (
+      <option key="choose" value="" className="modal__opt">
+        Seleccione una dificultad
+      </option>
+      {difficultyOpt.map((opt) => (
         <option key={opt.val} value={opt.val} className="modal__opt">
           {opt.name}
         </option>
