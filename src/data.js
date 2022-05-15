@@ -1,10 +1,15 @@
-const difficultyOptions = [
-  { val: "", name: "Seleccione una dificultad" },
+const difficultyOpt = [
   { val: "trivial", name: "Trivial" },
   { val: "easy", name: "Fácil" },
   { val: "medium", name: "Mediana" },
   { val: "hard", name: "Difícil" },
   { val: "epic", name: "Épica" },
+];
+
+const importanceOpt = [
+  { val: "low", name: "Baja" },
+  { val: "medium", name: "Media" },
+  { val: "high", name: "Alta" },
 ];
 
 const statusOptions = [
@@ -18,4 +23,12 @@ const statusOptions = [
 
 const requiredMessage = "*Campo obligatorio";
 
-export { difficultyOptions, statusOptions, requiredMessage };
+const username = JSON.parse(localStorage.getItem("user")).userName;
+
+export {
+  difficultyOpt,
+  importanceOpt,
+  statusOptions,
+  requiredMessage,
+  username,
+};
