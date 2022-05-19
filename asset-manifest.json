@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/go-scrum/static/css/main.b6260747.css",
+    "main.js": "/go-scrum/static/js/main.593abb84.js",
+    "static/media/tasks-background-4.jpg": "/go-scrum/static/media/tasks-background-4.d378db0d138ab115fe3a.jpg",
+    "static/media/tasks-background-2.jpg": "/go-scrum/static/media/tasks-background-2.52c0117bf293873daf7d.jpg",
+    "static/media/tasks-background-1.jpg": "/go-scrum/static/media/tasks-background-1.75d47399de9f883ba678.jpg",
+    "static/media/tasks-background-3.jpg": "/go-scrum/static/media/tasks-background-3.97e93fbf471e5fe32626.jpg",
+    "static/media/tasks-background-5.jpg": "/go-scrum/static/media/tasks-background-5.b91ef38a1cebcae8326e.jpg",
+    "static/media/tasks-background.webp": "/go-scrum/static/media/tasks-background.ce83b916d81ed0133a25.webp",
+    "static/media/background.webp": "/go-scrum/static/media/background.f6b39b95893b34744696.webp",
+    "static/media/go-scrum-logo-img.png": "/go-scrum/static/media/go-scrum-logo-img.4eed0228447f437c3eb8.png",
+    "static/media/go-scrum-logo.webp": "/go-scrum/static/media/go-scrum-logo.e9cb6fa04962e20d6918.webp",
+    "index.html": "/go-scrum/index.html",
+    "main.b6260747.css.map": "/go-scrum/static/css/main.b6260747.css.map",
+    "main.593abb84.js.map": "/go-scrum/static/js/main.593abb84.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b6260747.css",
+    "static/js/main.593abb84.js"
+  ]
+}
